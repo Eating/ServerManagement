@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import src.com.server.hiber.*;
+import org.hibernate.Session;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,13 +37,9 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 	}
 
 
-
-
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
-
-
 
 
 	public String getPassword() {
@@ -50,13 +47,9 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 	}
 
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 
 	public UserInfo getUserInfo() {
@@ -64,14 +57,13 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 	}
 
 
-
-
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
 	
-    public void validate(){
-    	userInfo = (UserInfo)request.getSession().getAttribute("currUser"); //不知道这一句干嘛的
+    
+	public void validate(){
+    	userInfo = new UserInfo();//= (UserInfo)request.getSession().getAttribute("userInfo"); //不知道这一句干嘛的
     	Session se = HibernateSessionFactory.getSession();
     	Criteria crit = se.createCriteria(Staff.class); 
     	crit.add(Restrictions.eq("userName", loginName));
@@ -80,10 +72,36 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     	 * 以上四行创建session，通过Hibernate结构的Staff类从数据库读取信息。
     	 * 局限于userName 和 password 均符合的信息，最后两行即是设置局限性。
     	 */
-    	List<Staff> staff = crit.list();
-    	if(staff.size() <= 0)
+    	List<Staff> staffList = crit.list();
+    	if(staffList.size() <= 0)
     		this.addActionError("用户名或密码错误，请重新输入");
+    	Staff staff = staffList.get(0);
+    	int staffType = staff.getStaffType();
+    	System.out.println("Login information\n" + staff.getUserName() + " ; " + staffType);
+    	userInfo.setId(staff.getId());
+    	userInfo.setUserName(staff.getUserName());
+    	System.out.println(userInfo.getId()+ userInfo.getUserName());
+    	request.getSession().setAttribute("userInfo", userInfo);
+    	if(staffType == 1){   // means supermanager
+    		try {
+				response.sendRedirect("SuperManager.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	else if(staffType == 2){
+    		try {
+				response.sendRedirect("Maintainer.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	
+    	
     	HibernateSessionFactory.closeSession();
+    	
     	
     	
     }
@@ -92,12 +110,12 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 	
 	
 	@Override
-	public void setServletResponse(HttpServletResponse arg0) {
+	public void setServletRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		this.request = request;
 	}
 	@Override
-	public void setServletRequest(HttpServletRequest arg0) {
+	public void setServletResponse(HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		this.response = response;
 	}

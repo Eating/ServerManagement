@@ -1,7 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@ page import="org.hibernate.Session" import="org.hibernate.Criteria"
-import="org.hibernate.criterion.Restrictions" import="java.util.*" 
-import="eating.user.UserInfo" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'SuperManager.jsp' starting page</title>
+    <title>My JSP 'Maintainer.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -26,9 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <%
-  UserInfo userInfo = (UserInfo)request.getAttribute("userInfo");;
-   %>
-    This is my SuperManager page. <br>
+    This is my Maintainer page. <br>
   </body>
 </html>

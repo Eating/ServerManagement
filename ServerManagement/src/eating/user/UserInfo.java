@@ -2,7 +2,7 @@ package eating.user;
 
 public class UserInfo {
 	private int id;
-	private String userName;
+	private String loginName;
 	public int getId() {
 		return id;
 	}
@@ -10,10 +10,10 @@ public class UserInfo {
 		this.id = id;
 	}
 	public String getUserName() {
-		return userName;
+		return loginName;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String loginName) {
+		this.loginName = loginName;
 	}
 	
 	
