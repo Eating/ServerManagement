@@ -8,7 +8,7 @@
     <class name="src.com.server.hiber.Itemlist" table="itemlist" catalog="android_final">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="store" class="src.com.server.hiber.Store" fetch="select">
             <column name="Store_id" not-null="true" />
