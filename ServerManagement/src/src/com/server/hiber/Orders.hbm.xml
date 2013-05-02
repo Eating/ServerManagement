@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="src.com.server.hiber.Orders" table="orders" catalog="android_final">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="integer">
             <column name="id" />
             <generator class="native" />
         </id>
@@ -16,10 +16,10 @@
         <many-to-one name="staff" class="src.com.server.hiber.Staff" fetch="select">
             <column name="Staff_id" not-null="true" />
         </many-to-one>
-        <property name="time" type="java.sql.Timestamp">
+        <property name="time" type="timestamp">
             <column name="time" length="0" not-null="true" />
         </property>
-        <property name="totalPrice" type="java.lang.Float">
+        <property name="totalPrice" type="float">
             <column name="totalPrice" precision="12" scale="0" not-null="true" />
         </property>
         <set name="orderdetailses" inverse="true">

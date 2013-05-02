@@ -12,9 +12,9 @@ public abstract class AbstractOrderdetails implements java.io.Serializable {
 	private Integer id;
 	private Orders orders;
 	private Itemlist itemlist;
-	private Float discount;
-	private Float singlePrice;
-	private Float totalPrice;
+	private float discount;
+	private float singlePrice;
+	private float totalPrice;
 	private Integer number;
 
 	// Constructors
@@ -25,7 +25,7 @@ public abstract class AbstractOrderdetails implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractOrderdetails(Orders orders, Itemlist itemlist,
-			Float singlePrice, Float totalPrice, Integer number) {
+			float singlePrice, float totalPrice, Integer number) {
 		this.orders = orders;
 		this.itemlist = itemlist;
 		this.singlePrice = singlePrice;
@@ -35,7 +35,7 @@ public abstract class AbstractOrderdetails implements java.io.Serializable {
 
 	/** full constructor */
 	public AbstractOrderdetails(Orders orders, Itemlist itemlist,
-			Float discount, Float singlePrice, Float totalPrice, Integer number) {
+			float discount, float singlePrice, float totalPrice, Integer number) {
 		this.orders = orders;
 		this.itemlist = itemlist;
 		this.discount = discount;
@@ -70,27 +70,27 @@ public abstract class AbstractOrderdetails implements java.io.Serializable {
 		this.itemlist = itemlist;
 	}
 
-	public Float getDiscount() {
+	public float getDiscount() {
 		return this.discount;
 	}
 
-	public void setDiscount(Float discount) {
+	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
 
-	public Float getSinglePrice() {
+	public float getSinglePrice() {
 		return this.singlePrice;
 	}
 
-	public void setSinglePrice(Float singlePrice) {
+	public void setSinglePrice(float singlePrice) {
 		this.singlePrice = singlePrice;
 	}
 
-	public Float getTotalPrice() {
+	public float getTotalPrice() {
 		return this.totalPrice;
 	}
 
-	public void setTotalPrice(Float totalPrice) {
+	public void setTotalPrice(float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

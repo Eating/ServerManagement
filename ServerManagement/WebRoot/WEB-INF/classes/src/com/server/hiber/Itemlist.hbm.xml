@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="src.com.server.hiber.Itemlist" table="itemlist" catalog="android_final">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="integer">
             <column name="id" />
             <generator class="native" />
         </id>
@@ -19,17 +19,20 @@
         <many-to-one name="itemsByGiftId" class="src.com.server.hiber.Items" fetch="select">
             <column name="Gift_id" />
         </many-to-one>
-        <property name="stock" type="java.lang.Integer">
+        <property name="stock" type="integer">
             <column name="stock" not-null="true" />
         </property>
-        <property name="discount" type="java.lang.Double">
-            <column name="discount" precision="22" scale="0" not-null="true" />
+        <property name="discount" type="float">
+            <column name="discount" precision="12" scale="0" not-null="true" />
         </property>
-        <property name="giftNum" type="java.lang.Integer">
+        <property name="giftNum" type="integer">
             <column name="giftNum" />
         </property>
-        <property name="state" type="java.lang.Boolean">
+        <property name="state" type="boolean">
             <column name="state" not-null="true" />
+        </property>
+        <property name="number" type="integer">
+            <column name="number" not-null="true" />
         </property>
         <set name="orderdetailses" inverse="true">
             <key>

@@ -77,10 +77,11 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     		this.addActionError("用户名或密码错误，请重新输入");
     	Staff staff = staffList.get(0);
     	int staffType = staff.getStaffType();
-    	System.out.println("Login information\n" + staff.getUserName() + " ; " + staffType);
+    	
     	userInfo.setId(staff.getId());
     	userInfo.setUserName(staff.getUserName());
-    	System.out.println(userInfo.getId()+ userInfo.getUserName());
+        userInfo.setType(staff.getStaffType());
+        
     	request.getSession().setAttribute("userInfo", userInfo);
     	if(staffType == 1){   // means supermanager
     		try {
@@ -98,7 +99,6 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 				e.printStackTrace();
 			}
     	}
-    	
     	
     	HibernateSessionFactory.closeSession();
     	

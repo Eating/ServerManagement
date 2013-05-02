@@ -1,6 +1,6 @@
 package src.com.server.hiber;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +16,8 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	private Integer id;
 	private Store store;
 	private Staff staff;
-	private Timestamp time;
-	private Float totalPrice;
+	private Date time;
+	private float totalPrice;
 	private Set orderdetailses = new HashSet(0);
 
 	// Constructors
@@ -27,8 +27,7 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractOrders(Store store, Staff staff, Timestamp time,
-			Float totalPrice) {
+	public AbstractOrders(Store store, Staff staff, Date time, float totalPrice) {
 		this.store = store;
 		this.staff = staff;
 		this.time = time;
@@ -36,8 +35,8 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractOrders(Store store, Staff staff, Timestamp time,
-			Float totalPrice, Set orderdetailses) {
+	public AbstractOrders(Store store, Staff staff, Date time,
+			float totalPrice, Set orderdetailses) {
 		this.store = store;
 		this.staff = staff;
 		this.time = time;
@@ -71,19 +70,19 @@ public abstract class AbstractOrders implements java.io.Serializable {
 		this.staff = staff;
 	}
 
-	public Timestamp getTime() {
+	public Date getTime() {
 		return this.time;
 	}
 
-	public void setTime(Timestamp time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 
-	public Float getTotalPrice() {
+	public float getTotalPrice() {
 		return this.totalPrice;
 	}
 
-	public void setTotalPrice(Float totalPrice) {
+	public void setTotalPrice(float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

@@ -6,23 +6,23 @@
 -->
 <hibernate-mapping>
     <class name="src.com.server.hiber.Staff" table="staff" catalog="android_final">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="integer">
             <column name="id" />
             <generator class="native" />
         </id>
         <many-to-one name="store" class="src.com.server.hiber.Store" fetch="select">
             <column name="Store_id" not-null="true" />
         </many-to-one>
-        <property name="userName" type="java.lang.String">
+        <property name="userName" type="string">
             <column name="userName" length="45" not-null="true" unique="true" />
         </property>
-        <property name="email" type="java.lang.String">
+        <property name="email" type="string">
             <column name="email" length="45" unique="true" />
         </property>
-        <property name="staffType" type="java.lang.Integer">
+        <property name="staffType" type="integer">
             <column name="StaffType" not-null="true" />
         </property>
-        <property name="password" type="java.lang.String">
+        <property name="password" type="string">
             <column name="password" length="45" not-null="true" />
         </property>
         <set name="orderses" inverse="true">

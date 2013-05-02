@@ -13,14 +13,14 @@ public class Orderdetails extends AbstractOrderdetails implements
 	}
 
 	/** minimal constructor */
-	public Orderdetails(Orders orders, Itemlist itemlist, Float singlePrice,
-			Float totalPrice, Integer number) {
+	public Orderdetails(Orders orders, Itemlist itemlist, float singlePrice,
+			float totalPrice, Integer number) {
 		super(orders, itemlist, singlePrice, totalPrice, number);
 	}
 
 	/** full constructor */
-	public Orderdetails(Orders orders, Itemlist itemlist, Float discount,
-			Float singlePrice, Float totalPrice, Integer number) {
+	public Orderdetails(Orders orders, Itemlist itemlist, float discount,
+			float singlePrice, float totalPrice, Integer number) {
 		super(orders, itemlist, discount, singlePrice, totalPrice, number);
 	}
 

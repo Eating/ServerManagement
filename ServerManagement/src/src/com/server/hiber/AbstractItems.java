@@ -15,7 +15,7 @@ public abstract class AbstractItems implements java.io.Serializable {
 	private Integer id;
 	private Category category;
 	private String name;
-	private Double price;
+	private float price;
 	private Set itemlistsForGiftId = new HashSet(0);
 	private Set itemlistsForItemsId = new HashSet(0);
 
@@ -26,14 +26,14 @@ public abstract class AbstractItems implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractItems(Category category, String name, Double price) {
+	public AbstractItems(Category category, String name, float price) {
 		this.category = category;
 		this.name = name;
 		this.price = price;
 	}
 
 	/** full constructor */
-	public AbstractItems(Category category, String name, Double price,
+	public AbstractItems(Category category, String name, float price,
 			Set itemlistsForGiftId, Set itemlistsForItemsId) {
 		this.category = category;
 		this.name = name;
@@ -68,11 +68,11 @@ public abstract class AbstractItems implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Double getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

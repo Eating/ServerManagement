@@ -14,12 +14,12 @@ public class Items extends AbstractItems implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Items(Category category, String name, Double price) {
+	public Items(Category category, String name, float price) {
 		super(category, name, price);
 	}
 
 	/** full constructor */
-	public Items(Category category, String name, Double price,
+	public Items(Category category, String name, float price,
 			Set itemlistsForGiftId, Set itemlistsForItemsId) {
 		super(category, name, price, itemlistsForGiftId, itemlistsForItemsId);
 	}

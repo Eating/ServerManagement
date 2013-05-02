@@ -17,9 +17,10 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 	private Items itemsByItemsId;
 	private Items itemsByGiftId;
 	private Integer stock;
-	private Double discount;
+	private float discount;
 	private Integer giftNum;
-	private Boolean state;
+	private boolean state;
+	private Integer number;
 	private Set orderdetailses = new HashSet(0);
 
 	// Constructors
@@ -30,18 +31,19 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractItemlist(Store store, Items itemsByItemsId, Integer stock,
-			Double discount, Boolean state) {
+			float discount, boolean state, Integer number) {
 		this.store = store;
 		this.itemsByItemsId = itemsByItemsId;
 		this.stock = stock;
 		this.discount = discount;
 		this.state = state;
+		this.number = number;
 	}
 
 	/** full constructor */
 	public AbstractItemlist(Store store, Items itemsByItemsId,
-			Items itemsByGiftId, Integer stock, Double discount,
-			Integer giftNum, Boolean state, Set orderdetailses) {
+			Items itemsByGiftId, Integer stock, float discount,
+			Integer giftNum, boolean state, Integer number, Set orderdetailses) {
 		this.store = store;
 		this.itemsByItemsId = itemsByItemsId;
 		this.itemsByGiftId = itemsByGiftId;
@@ -49,6 +51,7 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 		this.discount = discount;
 		this.giftNum = giftNum;
 		this.state = state;
+		this.number = number;
 		this.orderdetailses = orderdetailses;
 	}
 
@@ -94,11 +97,11 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 		this.stock = stock;
 	}
 
-	public Double getDiscount() {
+	public float getDiscount() {
 		return this.discount;
 	}
 
-	public void setDiscount(Double discount) {
+	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
 
@@ -110,12 +113,20 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 		this.giftNum = giftNum;
 	}
 
-	public Boolean getState() {
+	public boolean getState() {
 		return this.state;
 	}
 
-	public void setState(Boolean state) {
+	public void setState(boolean state) {
 		this.state = state;
+	}
+
+	public Integer getNumber() {
+		return this.number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 
 	public Set getOrderdetailses() {
