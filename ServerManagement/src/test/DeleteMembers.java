@@ -17,7 +17,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteMembers extends ActionSupport implements
 		ServletRequestAware, ServletResponseAware {
-    private int id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id;
 	private int userType;
 	private int managerType;
 	private HttpServletRequest request;
@@ -45,22 +49,6 @@ public class DeleteMembers extends ActionSupport implements
 	public void setManagerType(int managerType) {
 		this.managerType = managerType;
 	}
-	
-	
-	@Override
-	public void setServletResponse(HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		this.response = response;
-	}
-
-	@Override
-	public void setServletRequest(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		this.request = request;
-	}
-	
-	
-	
 	public String execute() throws Exception{
 		System.out.println("10");
 		if(userType <= managerType){
@@ -92,6 +80,19 @@ public class DeleteMembers extends ActionSupport implements
 		
 	}
 
+	
+	
+	@Override
+	public void setServletResponse(HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		this.response = response;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		this.request = request;
+	}
 	
 
 

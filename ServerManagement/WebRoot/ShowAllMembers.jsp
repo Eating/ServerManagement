@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>
 			<form action="deleteMembers">
 			<input type="hidden" name="id" value=<%=list.get(i).getUserId() %>></input>
-			<input type="hidden" name="userType" value=<%=list.get(i).getUserType() %>></input>	
+			<input type="hidden" name="userType" value=<%=list.get(i).getUserTypeInt() %>></input>	
 			<input type="hidden" name="managerType" value=<%=type %>></input> 
 			<input type="submit" value="删除此人员"></input>
 			</form>

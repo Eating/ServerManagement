@@ -6,6 +6,7 @@ public class AllMembersInfo {
 	private String email;
 	private String storeName;
 	private String userType;
+	private int userTypeInt;
 	public int getUserId() {
 		return userId;
 	}
@@ -35,6 +36,12 @@ public class AllMembersInfo {
 	}
 	public void setUserType(String userType) {
 		this.userType = userType;
+	}
+	public int getUserTypeInt() {
+		return userTypeInt;
+	}
+	public void setUserTypeInt(int userTypeInt) {
+		this.userTypeInt = userTypeInt;
 	}
 	
 }

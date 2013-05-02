@@ -8,8 +8,8 @@
 			<result name="input">/Login.jsp</result>
 		</action>
 		<action name="deleteMembers" class="test.DeleteMembers">
-			<result name="success">/ShowAllMembers.jsp</result>
-			<result name="input">/Login.jsp</result>
+			<result name="success">/SuperManager.jsp?id=1</result>
+			<result name="input">/SuperManager.jsp?id=3</result>
 		</action>
 	</package>
 </struts>    

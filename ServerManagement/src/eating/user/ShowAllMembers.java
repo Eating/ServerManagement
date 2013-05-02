@@ -42,6 +42,7 @@ public class ShowAllMembers {
 			}
 			temp.setUserId(info.getId());
 			temp.setEmail(info.getEmail());
+			temp.setUserTypeInt(info.getStaffType());
 			temp.setUserName(info.getUserName());
 			temp.setUserType(getTypeS);
 			temp.setStoreName(storeName);
