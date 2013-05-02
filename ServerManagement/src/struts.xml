@@ -7,6 +7,9 @@
 		<action name="login_check" class="eating.user.Login">
 			<result name="input">/Login.jsp</result>
 		</action>
-
+		<action name="deleteMembers" class="test.DeleteMembers">
+			<result name="success">/ShowAllMembers.jsp</result>
+			<result name="input">/Login.jsp</result>
+		</action>
 	</package>
 </struts>    

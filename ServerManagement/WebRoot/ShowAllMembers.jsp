@@ -26,10 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	 <div >
+	 <table>
 		<tr>
-			<th><h3>人员ID</h3></th>
+			<!--  <th><h3>人员ID</h3></th>-->
 			<th><h3>人员名称</h3></th>
-			<th><h3>人员邮件</h3></th>
+			<th><h3>邮件</h3></th>
 			<th><h3>所属商店</h3></th>
 			<th><h3>人员类型</h3></th>
 			<th><h3>操作</h3></th>
@@ -43,23 +44,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			for (int i = 0; i < size; i++) {
 		%>
 		<tr>
-			<td><%=list.get(i).getUserId()%></td>
+			<!--  <td><%=list.get(i).getUserId()%></td> -->
 			<td><%=list.get(i).getUserName()%></td>
 			<td><%=list.get(i).getEmail()%></td>
 			<td><%=list.get(i).getStoreName()%></td>
 			<td><%=list.get(i).getUserType()%></td>
 			<td>
-				<form>
-					<input type="hidden" name="managerID"
-						value=<%=list.get(i).getUserId()%>></input> <input type="submit"
-						value="删除此人员"></input>
-				</form>
+			<form action="deleteMembers">
+			<input type="hidden" name="id" value=<%=list.get(i).getUserId() %>></input>
+			<input type="hidden" name="userType" value=<%=list.get(i).getUserType() %>></input>	
+			<input type="hidden" name="managerType" value=<%=type %>></input> 
+			<input type="submit" value="删除此人员"></input>
+			</form>
 			</td>
 		</tr>
 		<%} 
 		%>
 
-
+</table>
 	</div>
 </body>
 </html>
