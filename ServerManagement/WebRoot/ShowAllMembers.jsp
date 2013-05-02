@@ -25,20 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	 <div>
+	 <div >
 		<tr>
-			<th><h3>人员ID</h3>
-			</th>
-			<th><h3>人员名称</h3>
-			</th>
-			<th><h3>人员邮件</h3>
-			</th>
-			<th><h3>所属商店</h3>
-			</th>
-			<th><h3>人员类型</h3>
-			</th>
-			<th><h3>操作</h3>
-			</th>
+			<th><h3>人员ID</h3></th>
+			<th><h3>人员名称</h3></th>
+			<th><h3>人员邮件</h3></th>
+			<th><h3>所属商店</h3></th>
+			<th><h3>人员类型</h3></th>
+			<th><h3>操作</h3></th>
 		</tr>
 		<%
 			int type = Integer.valueOf(request.getParameter("manType"));

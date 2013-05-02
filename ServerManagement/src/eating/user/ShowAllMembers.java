@@ -18,13 +18,14 @@ public class ShowAllMembers {
 	}
 	public void setStaff(){
 		
-		AllMembersInfo temp = new AllMembersInfo();
+		
 
 		Session se = HibernateSessionFactory.getSession();
 		Criteria crit = se.createCriteria(Staff.class);
 		crit.add(Restrictions.gt("staffType", new Integer(type)));
 		List<Staff> listStaff = crit.list();
 		for(Staff info:listStaff){
+			AllMembersInfo temp = new AllMembersInfo();
 			int getType = info.getStaffType();
 			String storeName = info.getStore().getName();
 			String getTypeS = "";
