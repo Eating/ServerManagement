@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -23,6 +23,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    Delete Members <br>
+    <%
+    String param = "a";
+    if(request.getParameter("param")!=null)
+    param = request.getParameter("param"); 
+    int manType = Integer.valueOf(request.getParameter("manType"));
+    
+     %>
+     <div>
+      <fieldset>
+    <legend>添加信息</legend>
+  	<s:actionerror/>
+    <s:form action="deleteMembersB">
+    <s:hidden name="manType" value="%{#manType}"/>
+    		<s:textfield name="userName" label="输入你要删除的人员登录名"/>
+			<s:submit value="删除"/>
+			<s:reset value="重置"/>
+	</s:form>
+	</fieldset>
+     </div>
+     <div>
+     <%if(!param.equals("a")){ %>
+     <jsp:include page="AcknowledgeDelete.jsp"><jsp:param name="param" value="<%=param%>"/></jsp:include>
+     <%} %>
+     </div>
   </body>
 </html>

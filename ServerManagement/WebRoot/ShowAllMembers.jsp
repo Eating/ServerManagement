@@ -36,6 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th><h3>操作</h3></th>
 		</tr>
 		<%
+		    
 			int type = Integer.valueOf(request.getParameter("manType"));
 			ShowAllMembers showAll = new ShowAllMembers(type);
 			showAll.setStaff();

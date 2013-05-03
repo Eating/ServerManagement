@@ -31,7 +31,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   String userName = userInfo.getUserName();
   int type = userInfo.getType();
   String typeS = String.valueOf(type);
-  int id = 1; 
+  int id = 1;
+  String param = "a"; 
+  if(request.getParameter("param")!=null)
+  param = request.getParameter("param");
   if(request.getParameter("id") != null)
   	id = Integer.valueOf(request.getParameter("id"));
 
@@ -46,27 +49,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div>
 		<ul>
 			<li><a href="SuperManager.jsp?id=1">查看所有人员信息</a></li>
-			<li><a href="SuperManager.jsp?id=2">增加人员</a></li>
-			<li><a href="SuperManager.jsp?id=3">删除人员</a></li>
+			<li><a href="SuperManager.jsp?id=2">增加维护员</a></li>
+			<li><a href="SuperManager.jsp?id=3">增加管理人员</a></li>
+			<li><a href="SuperManager.jsp?id=4">删除人员</a></li>
 			<li><a href="Login.jsp">退出</a></li>
 		</ul>
 	</div>
  <div>
+        <%if(!param.equals("a")){ %>
+         <jsp:include page="DeleteMembers.jsp">
+			<jsp:param name="manType" value="<%=type%>"></jsp:param>
+			<jsp:param name="param" value="<%=param%>"></jsp:param>
+			</jsp:include>
 		<%
-			if (id == 1) {
+		}else if (id == 1) {
 		%>
 		<jsp:include page="ShowAllMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
 		<%} 
 		else if (id == 2) {
 		%>
-		<jsp:include page="AddMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
+		<jsp:include page="AddMaintainer.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
 		<%} 
 		else if (id == 3) {
 		%>
-		<jsp:include page="DeleteMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
+		<jsp:include page="AddManagers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
 		<%
-			}
-		%>
+			}else if(id==4){%>
+			<jsp:include page="DeleteMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
+			<%} %>
+		
 	</div>
 	
 	

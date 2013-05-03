@@ -1,3 +1,6 @@
-#Thu May 02 13:42:32 EST 2013
+#Fri May 03 15:42:55 EST 2013
 eclipse.preferences.version=1
+encoding//WebRoot/AddMaintainer.jsp=UTF-8
+encoding//WebRoot/AddManagers.jsp=UTF-8
+encoding//WebRoot/DeleteMembers.jsp=UTF-8
 encoding//WebRoot/ShowAllMembers.jsp=UTF-8

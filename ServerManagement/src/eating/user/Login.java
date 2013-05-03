@@ -73,8 +73,10 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     	 * 局限于userName 和 password 均符合的信息，最后两行即是设置局限性。
     	 */
     	List<Staff> staffList = crit.list();
-    	if(staffList.size() <= 0)
-    		this.addActionError("用户名或密码错误，请重新输入");
+    	if(staffList.size() <= 0){
+    		HibernateSessionFactory.closeSession();
+    		this.addActionError("用户名或密码错误，请重新输入");}
+    	else {
     	Staff staff = staffList.get(0);
     	int staffType = staff.getStaffType();
     	
@@ -101,7 +103,7 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     	}
     	
     	HibernateSessionFactory.closeSession();
-    	
+    	}
     	
     	
     }
