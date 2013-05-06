@@ -7,7 +7,7 @@
 		<action name="login_check" class="eating.user.Login">
 			<result name="input">/Login.jsp</result>
 		</action>
-		<action name="deleteMembers" class="test.DeleteMembers">
+		<action name="deleteMembers" class="eating.user.DeleteMembers">
 			<result name="success">/SuperManager.jsp?id=1</result>
 			<result name="input">/SuperManager.jsp?id=3</result>
 		</action>
@@ -28,5 +28,19 @@
 		<action name="acknowledgeDelete" class="eating.user.AcknowledgeDelete">
 			<result name="success">/SuperManager.jsp?id=1</result>
 		</action>
+		<action name="listMemberInfo" class="eating.user.ListMemberInfo">
+			<result name="success">/SuperManager.jsp?id=1</result>
+		</action>
+		
+		<action name="changePassword" class="eating.user.ChangePassword">
+		    <result name="input">/SuperManager.jsp?id=5</result>
+			<result name="success">/SuperManager.jsp?id=1</result>
+		</action>
+		
+		<action name="toBackup" class="test.ToBackup">
+		    <result name="input">/test.jsp</result>
+		    <result name="success">/BackupSuccess.jsp</result>
+		</action>
+			
 	</package>
 </struts>    

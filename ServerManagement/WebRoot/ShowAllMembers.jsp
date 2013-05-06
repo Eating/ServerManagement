@@ -36,11 +36,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th><h3>操作</h3></th>
 		</tr>
 		<%
-		    
-			int type = Integer.valueOf(request.getParameter("manType"));
+		int type = -1;
+		    if(request.getParameter("manType") != null)	    
+			 type = Integer.valueOf(request.getParameter("manType"));
+			 System.out.println("showallmembership de" + type);
 			ShowAllMembers showAll = new ShowAllMembers(type);
 			showAll.setStaff();
 		    List<AllMembersInfo> list = showAll.getStaff();
+		    int check = 0;
+		    String checkS = "";
+		    if(request.getParameter("check") != null)
+		    {
+		    check = Integer.valueOf(request.getParameter("check"));
+		    checkS = request.getParameter("check");
+		    }
 			int size = list.size();
 			for (int i = 0; i < size; i++) {
 		%>
@@ -56,6 +65,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" name="userType" value=<%=list.get(i).getUserTypeInt() %>></input>	
 			<input type="hidden" name="managerType" value=<%=type %>></input> 
 			<input type="submit" value="删除此人员"></input>
+			</form>		
+			</td>
+			
+			<td>
+			<form action="listMemberInfo">
+			<input type="hidden" name="userId" value=<%=list.get(i).getUserId() %>></input>
+			<input type="submit" value="修改此人员"></input>
 			</form>
 			</td>
 		</tr>
@@ -63,6 +79,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		%>
 
 </table>
+	</div>
+	<div>
+	<%if(check!= 0){ %>
+	 <jsp:include page="Modification.jsp"><jsp:param name="userId" value="<%=checkS%>"/></jsp:include>
+	<%} %>
 	</div>
 </body>
 </html>

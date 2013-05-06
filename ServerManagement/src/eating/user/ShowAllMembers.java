@@ -13,6 +13,7 @@ import src.com.server.hiber.Staff;
 public class ShowAllMembers {
 	private int type = 1;
 	private String userName;
+	private int id = 0;
 	private List<AllMembersInfo> listMembers = new ArrayList<AllMembersInfo>();
 	private AllMembersInfo memberInfo = new AllMembersInfo();
 	public ShowAllMembers(int type){
@@ -20,11 +21,13 @@ public class ShowAllMembers {
 	}
 	public void setUserName(String userName){
 		this.userName = userName;
+		System.out.println(userName);
+	}
+	public void setUserId(int id){
+		this.id = id;
+		System.out.println(id);
 	}
 	public void setStaff(){
-		
-		
-
 		Session se = HibernateSessionFactory.getSession();
 		Criteria crit = se.createCriteria(Staff.class);
 		crit.add(Restrictions.gt("staffType", new Integer(type)));
@@ -45,6 +48,7 @@ public class ShowAllMembers {
 				getTypeS = "维护人员";
 				break;
 			}
+			temp.setStoretId(info.getStore().getId());
 			temp.setUserId(info.getId());
 			temp.setEmail(info.getEmail());
 			temp.setUserTypeInt(info.getStaffType());
@@ -52,10 +56,8 @@ public class ShowAllMembers {
 			temp.setUserType(getTypeS);
 			temp.setStoreName(storeName);
 			listMembers.add(temp);
-		}
-    	
-    	HibernateSessionFactory.closeSession();
-		
+		} 	
+    	HibernateSessionFactory.closeSession();		
 	}
 	public void setOneStaff(){
 		Session se = HibernateSessionFactory.getSession();
@@ -78,6 +80,7 @@ public class ShowAllMembers {
 				getTypeS = "维护人员";
 				break;
 			}
+			memberInfo.setStoretId(st.getStore().getId());
 			memberInfo.setUserId(st.getId());
 			memberInfo.setEmail(st.getEmail());
 			memberInfo.setUserTypeInt(st.getStaffType());
@@ -86,12 +89,40 @@ public class ShowAllMembers {
 			memberInfo.setStoreName(storeName);
 			HibernateSessionFactory.closeSession();
 	}
+	public void setOneStaffById(){
+		Session se = HibernateSessionFactory.getSession();
+		Criteria crit = se.createCriteria(Staff.class);
+		crit.add(Restrictions.eq("id", id));
+		List<Staff> listStaff = crit.list();
+			
+			Staff st = listStaff.get(0);
+			int getType = st.getStaffType();
+			String storeName = st.getStore().getName();
+			String getTypeS = "";
+			switch(getType){
+			case 2:
+				getTypeS = "二级管理员";
+				break;
+			case 3:
+				getTypeS = "三级管理员";
+				break;
+			case 4:
+				getTypeS = "维护人员";
+				break;
+			}
+			memberInfo.setStoretId(st.getStore().getId());
+			memberInfo.setUserId(st.getId());
+			memberInfo.setEmail(st.getEmail());
+			memberInfo.setUserTypeInt(st.getStaffType());
+			memberInfo.setUserName(st.getUserName());
+			memberInfo.setUserType(getTypeS);
+			memberInfo.setStoreName(storeName);
+			HibernateSessionFactory.closeSession();
+	} 
 	public AllMembersInfo getOneStaff(){
 		return memberInfo;
 	}
 	public List<AllMembersInfo> getStaff(){
 		return listMembers;
 	}
-
-
 }

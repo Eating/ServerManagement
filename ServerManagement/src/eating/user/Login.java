@@ -85,7 +85,7 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
         userInfo.setType(staff.getStaffType());
         
     	request.getSession().setAttribute("userInfo", userInfo);
-    	if(staffType == 1){   // means supermanager
+    	if(staffType == 1 || staffType == 2 || staffType == 3){   // means supermanager
     		try {
 				response.sendRedirect("SuperManager.jsp");
 			} catch (IOException e) {
@@ -93,7 +93,7 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 				e.printStackTrace();
 			}
     	}
-    	else if(staffType == 2){
+    	else if(staffType == 4){
     		try {
 				response.sendRedirect("Maintainer.jsp");
 			} catch (IOException e) {

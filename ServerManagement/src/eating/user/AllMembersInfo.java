@@ -5,6 +5,7 @@ public class AllMembersInfo {
 	private String userName;
 	private String email;
 	private String storeName;
+	private int storeId;
 	private String userType;
 	private int userTypeInt;
 	public int getUserId() {
@@ -13,6 +14,15 @@ public class AllMembersInfo {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	
+	public int getStoreId() {
+		return storeId;
+	}
+	public void setStoretId(int storeId) {
+		this.storeId = storeId;
+	}
+	
+	
 	public String getUserName() {
 		return userName;
 	}

@@ -54,6 +54,7 @@ public class DeleteMembersB extends ActionSupport implements ServletRequestAware
 		this.userName = userName;
 	}
     public void validate(){
+    	System.out.println("delemembers" +manType);
     	int manTypeI = Integer.valueOf(manType);
     	if(userName.equals("")){
     		se.close();

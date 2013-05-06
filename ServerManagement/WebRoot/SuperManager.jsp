@@ -2,6 +2,7 @@
 <%@ page import="org.hibernate.Session" import="org.hibernate.Criteria"
 	import="org.hibernate.criterion.Restrictions" import="java.util.*"
 	import="eating.user.UserInfo"%>
+	
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,6 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   param = request.getParameter("param");
   if(request.getParameter("id") != null)
   	id = Integer.valueOf(request.getParameter("id"));
+  int check = 0;
+  String checkS = "";
+  if(request.getParameter("check") != null)
+  {
+  check = Integer.valueOf(request.getParameter("check"));
+  checkS = request.getParameter("check");
+  }
+  System.out.println("superManager" + check);
 
    %>
 
@@ -52,6 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="SuperManager.jsp?id=2">增加维护员</a></li>
 			<li><a href="SuperManager.jsp?id=3">增加管理人员</a></li>
 			<li><a href="SuperManager.jsp?id=4">删除人员</a></li>
+			<li><a href="SuperManager.jsp?id=5">修改密码</a></li>
 			<li><a href="Login.jsp">退出</a></li>
 		</ul>
 	</div>
@@ -62,7 +72,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<jsp:param name="param" value="<%=param%>"></jsp:param>
 			</jsp:include>
 		<%
-		}else if (id == 1) {
+		} else if(check != 0){%>
+		<jsp:include page="ShowAllMembers.jsp">
+		<jsp:param name="manType" value="<%=type%>"></jsp:param>
+		<jsp:param name="check" value="<%=checkS%>"></jsp:param>
+		</jsp:include>
+		<%} else if (id == 1) {
 		%>
 		<jsp:include page="ShowAllMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
 		<%} 
@@ -76,6 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%
 			}else if(id==4){%>
 			<jsp:include page="DeleteMembers.jsp"><jsp:param name="manType" value="<%=type%>"></jsp:param></jsp:include>
+			<%} else if(id == 5){%>
+			<jsp:include page="ChangePassword.jsp"><jsp:param name="userId" value="<%=userInfo.getId() %>"></jsp:param></jsp:include>
 			<%} %>
 		
 	</div>

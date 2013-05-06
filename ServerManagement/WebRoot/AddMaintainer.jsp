@@ -44,9 +44,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             管理员类型
     <select name="setStore">
 					<% for(int i=0; i<size; i++){
+					if(!list.get(i).getName().equals("superDepartment") && !list.get(i).getName().equals("server")){
 					 %>
 					<option value=<%=list.get(i).getId() %>><%=list.get(i).getName() %></option>
 					<%}
+					}
 					%>
 				</select>
 				<s:submit value="注册" />
