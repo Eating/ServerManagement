@@ -1,4 +1,4 @@
-package test;
+package eating.backup;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -25,6 +25,7 @@ public class ToBackup extends ActionSupport implements ServletRequestAware, Serv
 	private HttpServletResponse response;
 	public final String BACKUP_COMMAND = "mysqldump";
 	public final String ENCODING = "utf8";
+	private static String dbName = "android_final";
 	public String getPath() {
 		return path;
 	}
@@ -33,12 +34,10 @@ public class ToBackup extends ActionSupport implements ServletRequestAware, Serv
 	}
 	
 	public void validate(){
-		String dbName = "android_final";
-		System.out.println("path" + path);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		String date = df.format(new Date());
 		System.out.println(date+"aaaaaa");
-		String bakName = path+dbName+date+".bak";
+		String bakName = path+dbName+date+".sql";
 		System.out.println(bakName);
 		if(backup(bakName))
 			try {
@@ -60,7 +59,7 @@ public class ToBackup extends ActionSupport implements ServletRequestAware, Serv
 			String inStr = "";
 			StringBuffer sb = new StringBuffer("");
 			 while ((inStr = br.readLine()) !=null) {   
-				              sb.append(inStr).append("");   
+				              sb.append(inStr + "\r\n");    
 				          }   
 				          String outStr = sb.toString();   
 				   
@@ -74,10 +73,11 @@ public class ToBackup extends ActionSupport implements ServletRequestAware, Serv
 				          e.printStackTrace();   
 				          isSuccess =false;   
 				      }   
+		
 				     return isSuccess;  
 	}
 	private String getBackupStr() {   
-		     String backupStr = BACKUP_COMMAND +" -u" + "root" +" -p" + "1234" +" -h" + "localhost" +" --set-charset=" + "utf8" +" " + "android_final";   
+		     String backupStr = BACKUP_COMMAND +" -u" + "root" +" -p" + "1234" +" -h" + "localhost" +" " + "android_final";   
 			    return backupStr;   
 			}   
 

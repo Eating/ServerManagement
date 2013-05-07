@@ -37,10 +37,17 @@
 			<result name="success">/SuperManager.jsp?id=1</result>
 		</action>
 		
-		<action name="toBackup" class="test.ToBackup">
+		<action name="toBackup" class="eating.backup.ToBackup">
 		    <result name="input">/test.jsp</result>
 		    <result name="success">/BackupSuccess.jsp</result>
 		</action>
+		
+		<action name="toRecover" class="eating.backup.ToRecover">
+		    <result name="input">/test.jsp</result>
+		    <result name="success">/RecoverSuccess.jsp</result>
+		</action>
+		
+		
 			
 	</package>
 </struts>    
