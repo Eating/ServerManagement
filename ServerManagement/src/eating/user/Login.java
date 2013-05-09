@@ -73,19 +73,16 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     	 * 局限于userName 和 password 均符合的信息，最后两行即是设置局限性。
     	 */
     	List<Staff> staffList = crit.list();
-    	if(staffList.size() <= 0){
-    		HibernateSessionFactory.closeSession();
-    		this.addActionError("用户名或密码错误，请重新输入");}
-    	else {
+    	if(staffList.size() <= 0)
+    		this.addActionError("用户名或密码错误，请重新输入");
     	Staff staff = staffList.get(0);
     	int staffType = staff.getStaffType();
-    	
+    	System.out.println("Login information\n" + staff.getUserName() + " ; " + staffType);
     	userInfo.setId(staff.getId());
     	userInfo.setUserName(staff.getUserName());
-        userInfo.setType(staff.getStaffType());
-        
+    	System.out.println(userInfo.getId()+ userInfo.getUserName());
     	request.getSession().setAttribute("userInfo", userInfo);
-    	if(staffType == 1 || staffType == 2 || staffType == 3){   // means supermanager
+    	if(staffType == 1){   // means supermanager
     		try {
 				response.sendRedirect("SuperManager.jsp");
 			} catch (IOException e) {
@@ -93,7 +90,7 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 				e.printStackTrace();
 			}
     	}
-    	else if(staffType == 4){
+    	else if(staffType == 2){
     		try {
 				response.sendRedirect("Maintainer.jsp");
 			} catch (IOException e) {
@@ -102,8 +99,9 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
 			}
     	}
     	
+    	
     	HibernateSessionFactory.closeSession();
-    	}
+    	
     	
     	
     }
