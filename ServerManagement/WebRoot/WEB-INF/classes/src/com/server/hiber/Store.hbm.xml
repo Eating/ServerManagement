@@ -16,12 +16,6 @@
         <property name="address" type="string">
             <column name="address" length="100" not-null="true" unique="true" />
         </property>
-        <set name="orderses" inverse="true">
-            <key>
-                <column name="Store_id" not-null="true" />
-            </key>
-            <one-to-many class="src.com.server.hiber.Orders" />
-        </set>
         <set name="staffs" inverse="true">
             <key>
                 <column name="Store_id" not-null="true" />

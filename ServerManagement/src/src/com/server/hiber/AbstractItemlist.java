@@ -1,8 +1,5 @@
 package src.com.server.hiber;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * AbstractItemlist entity provides the base persistence definition of the
  * Itemlist entity. @author MyEclipse Persistence Tools
@@ -21,7 +18,6 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 	private Integer giftNum;
 	private boolean state;
 	private Integer number;
-	private Set orderdetailses = new HashSet(0);
 
 	// Constructors
 
@@ -43,7 +39,7 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 	/** full constructor */
 	public AbstractItemlist(Store store, Items itemsByItemsId,
 			Items itemsByGiftId, Integer stock, float discount,
-			Integer giftNum, boolean state, Integer number, Set orderdetailses) {
+			Integer giftNum, boolean state, Integer number) {
 		this.store = store;
 		this.itemsByItemsId = itemsByItemsId;
 		this.itemsByGiftId = itemsByGiftId;
@@ -52,7 +48,6 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 		this.giftNum = giftNum;
 		this.state = state;
 		this.number = number;
-		this.orderdetailses = orderdetailses;
 	}
 
 	// Property accessors
@@ -127,14 +122,6 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 
 	public void setNumber(Integer number) {
 		this.number = number;
-	}
-
-	public Set getOrderdetailses() {
-		return this.orderdetailses;
-	}
-
-	public void setOrderdetailses(Set orderdetailses) {
-		this.orderdetailses = orderdetailses;
 	}
 
 }

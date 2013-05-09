@@ -34,11 +34,5 @@
         <property name="number" type="integer">
             <column name="number" not-null="true" />
         </property>
-        <set name="orderdetailses" inverse="true">
-            <key>
-                <column name="ItemList_id" not-null="true" />
-            </key>
-            <one-to-many class="src.com.server.hiber.Orderdetails" />
-        </set>
     </class>
 </hibernate-mapping>

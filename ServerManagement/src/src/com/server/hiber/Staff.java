@@ -1,7 +1,5 @@
 package src.com.server.hiber;
 
-import java.util.Set;
-
 /**
  * Staff entity. @author MyEclipse Persistence Tools
  */
@@ -21,8 +19,8 @@ public class Staff extends AbstractStaff implements java.io.Serializable {
 
 	/** full constructor */
 	public Staff(Store store, String userName, String email, Integer staffType,
-			String password, Set orderses) {
-		super(store, userName, email, staffType, password, orderses);
+			String password) {
+		super(store, userName, email, staffType, password);
 	}
 
 }

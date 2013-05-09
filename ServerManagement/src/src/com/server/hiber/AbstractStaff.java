@@ -1,8 +1,5 @@
 package src.com.server.hiber;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * AbstractStaff entity provides the base persistence definition of the Staff
  * entity. @author MyEclipse Persistence Tools
@@ -18,7 +15,6 @@ public abstract class AbstractStaff implements java.io.Serializable {
 	private String email;
 	private Integer staffType;
 	private String password;
-	private Set orderses = new HashSet(0);
 
 	// Constructors
 
@@ -37,13 +33,12 @@ public abstract class AbstractStaff implements java.io.Serializable {
 
 	/** full constructor */
 	public AbstractStaff(Store store, String userName, String email,
-			Integer staffType, String password, Set orderses) {
+			Integer staffType, String password) {
 		this.store = store;
 		this.userName = userName;
 		this.email = email;
 		this.staffType = staffType;
 		this.password = password;
-		this.orderses = orderses;
 	}
 
 	// Property accessors
@@ -94,14 +89,6 @@ public abstract class AbstractStaff implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Set getOrderses() {
-		return this.orderses;
-	}
-
-	public void setOrderses(Set orderses) {
-		this.orderses = orderses;
 	}
 
 }

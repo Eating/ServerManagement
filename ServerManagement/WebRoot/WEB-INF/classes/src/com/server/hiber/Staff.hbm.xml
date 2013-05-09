@@ -25,11 +25,5 @@
         <property name="password" type="string">
             <column name="password" length="45" not-null="true" />
         </property>
-        <set name="orderses" inverse="true">
-            <key>
-                <column name="Staff_id" not-null="true" />
-            </key>
-            <one-to-many class="src.com.server.hiber.Orders" />
-        </set>
     </class>
 </hibernate-mapping>

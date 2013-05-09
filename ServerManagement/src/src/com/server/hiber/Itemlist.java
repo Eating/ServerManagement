@@ -1,7 +1,5 @@
 package src.com.server.hiber;
 
-import java.util.Set;
-
 /**
  * Itemlist entity. @author MyEclipse Persistence Tools
  */
@@ -22,9 +20,9 @@ public class Itemlist extends AbstractItemlist implements java.io.Serializable {
 	/** full constructor */
 	public Itemlist(Store store, Items itemsByItemsId, Items itemsByGiftId,
 			Integer stock, float discount, Integer giftNum, boolean state,
-			Integer number, Set orderdetailses) {
+			Integer number) {
 		super(store, itemsByItemsId, itemsByGiftId, stock, discount, giftNum,
-				state, number, orderdetailses);
+				state, number);
 	}
 
 }

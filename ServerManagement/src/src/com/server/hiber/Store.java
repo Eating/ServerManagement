@@ -19,9 +19,8 @@ public class Store extends AbstractStore implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Store(String name, String address, Set orderses, Set staffs,
-			Set itemlists) {
-		super(name, address, orderses, staffs, itemlists);
+	public Store(String name, String address, Set staffs, Set itemlists) {
+		super(name, address, staffs, itemlists);
 	}
 
 }

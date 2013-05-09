@@ -19,6 +19,9 @@
         <property name="price" type="float">
             <column name="price" precision="12" scale="0" not-null="true" />
         </property>
+        <property name="purchasePrice" type="float">
+            <column name="purchasePrice" precision="12" scale="0" not-null="true" />
+        </property>
         <set name="itemlistsForGiftId" inverse="true">
             <key>
                 <column name="Gift_id" />

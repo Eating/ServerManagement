@@ -15,7 +15,6 @@ public abstract class AbstractStore implements java.io.Serializable {
 	private Integer id;
 	private String name;
 	private String address;
-	private Set orderses = new HashSet(0);
 	private Set staffs = new HashSet(0);
 	private Set itemlists = new HashSet(0);
 
@@ -32,11 +31,9 @@ public abstract class AbstractStore implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractStore(String name, String address, Set orderses, Set staffs,
-			Set itemlists) {
+	public AbstractStore(String name, String address, Set staffs, Set itemlists) {
 		this.name = name;
 		this.address = address;
-		this.orderses = orderses;
 		this.staffs = staffs;
 		this.itemlists = itemlists;
 	}
@@ -65,14 +62,6 @@ public abstract class AbstractStore implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public Set getOrderses() {
-		return this.orderses;
-	}
-
-	public void setOrderses(Set orderses) {
-		this.orderses = orderses;
 	}
 
 	public Set getStaffs() {
