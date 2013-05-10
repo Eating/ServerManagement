@@ -47,5 +47,107 @@
 		    <result name="input">/test.jsp</result>
 		    <result name="success">/RecoverSuccess.jsp</result>
 		</action>
+		
+		<!-- ******************** maintainer's action **********************-->
+		<action name="maintainItems" class="fish.maintainer.items.MaintainItemsAction">
+			<result name="input">/MaintainerPage/MaintainItems.jsp</result>
+			<result name="success">/MaintainerPage/MaintainItems.jsp</result>
+		</action>
+
+		<action name="searchItems" class="fish.maintainer.items.SearchItemsAction">
+			<result name="input">/MaintainerPage/SearchItems.jsp</result>
+			<result name="success">/MaintainerPage/SearchItems.jsp</result>
+		</action>
+		
+		<action name="removeCategory" class="fish.maintainer.items.RmvCategoryAction">
+			<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="removeItems" class="fish.maintainer.items.RmvItemsAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="removeItemlist" class="fish.maintainer.items.RmvItemlistAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="alterCategory" class="fish.maintainer.items.AlterCategoryAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="addCategory" class="fish.maintainer.items.AddCategoryAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="addItems" class="fish.maintainer.items.AddItemsAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="addItemlist" class="fish.maintainer.items.AddItemlistAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="alterItems" class="fish.maintainer.items.AlterItemsAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+         <action name="alterItemlist" class="fish.maintainer.items.AlterItemlistAction">
+        	<result name="input" type="redirect">maintainItems.action</result>
+            <result name="success" type="redirect">maintainItems.action</result>
+        </action>
+        
+        <action name="maintainStores" class="fish.maintainer.stores.MaintainStoresAction">
+			<result name="input">/MaintainerPage/MaintainStores.jsp</result>
+			<result name="success">/MaintainerPage/MaintainStores.jsp</result>
+		</action>
+		
+		<action name="removeStore" class="fish.maintainer.stores.RmvStoreAction">
+			<result name="input" type="redirect">maintainStores.action</result>
+			<result name="success" type="redirect">maintainStores.action</result>
+		</action>
+		
+		<action name="alterStore" class="fish.maintainer.stores.AlterStoreAction">
+			<result name="input" type="redirect">maintainStores.action</result>
+			<result name="success" type="redirect">maintainStores.action</result>
+		</action>
+		
+		<action name="addStore" class="fish.maintainer.stores.AddStoreAction">
+			<result name="input" type="redirect">maintainStores.action</result>
+			<result name="success" type="redirect">maintainStores.action</result>
+		</action>
+		
+		<action name="addStoreDetail" class="fish.maintainer.stores.AddStoreDetailAction">
+			<result name="input">/MaintainerPage/AddStoreDetail.jsp</result>
+			<result name="success">/MaintainerPage/AddStoreDetail.jsp</result>
+		</action>
+		
+		<action name="addStoreContent" class="fish.maintainer.stores.AddStoreContentAction">
+			<result name="input" type="redirect">addStoreDetail.action</result>
+			<result name="success" type="redirect">addStoreDetail.action</result>
+		</action>
+		
+		<action name="maintainStock" class="fish.maintainer.items.MaintainItemsAction">
+			<result name="input">/MaintainerPage/MaintainStock.jsp</result>
+			<result name="success">/MaintainerPage/MaintainStock.jsp</result>
+		</action>
+		
+		<action name="alterStock" class="fish.maintainer.stock.AlterStockAction">
+			<result name="input" type="redirect">maintainStock.action</result>
+			<result name="success" type="redirect">maintainStock.action</result>
+		</action>
+		
+		<action name="statistics" class="fish.maintainer.orders.StatisticsAction">
+			<result name="input">/MaintainerPage/Statistics.jsp</result>
+			<result name="success">/MaintainerPage/Statistics.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

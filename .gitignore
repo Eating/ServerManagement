@@ -1,0 +1,3 @@
+ServerManagement/WebRoot/WEB-INF/classes/hibernate.cfg.xml
+ServerManagement/hibernate.reveng.xml
+ServerManagement/src/hibernate.cfg.xml
