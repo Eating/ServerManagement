@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<link rel="stylesheet" media="screen" type="text/css" href="css/LoginPage.css"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmls="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,28 +26,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<center>
 		<div>
-			<h1>欢迎来到</h1>
-			<h2>服务器管理端</h2>
-			<h1>登陆界面</h1>
+		<div class="logo">
+		
 		</div>
-		<div>
+		<div class="login">
 			<fieldset>
-				<legend>
-					<h1>
-						<font color="#9933FF">欢迎登陆</font>
-					</h1>
-				</legend>
 				<s:form action="login_check">
 					<s:actionerror />
 					
-					<s:textfield name="loginName" label="用户"></s:textfield>
-					<br />
-					<s:password name="password" label="密码"></s:password>
-					<s:submit value="登录" />
-					<s:reset value="重置" />
+					<s:textfield name="loginName" label="用户" style="width:200px;height:30px;font-size:20px"></s:textfield>
+					<br/>
+					<br/>
+					<s:password name="password" label="密码" style="width:200px;height:30px;font-size:20px;margin-top:20px"></s:password>
+					<s:submit  class="submit" value="登录" style="height:30px;width:55px;margin-top:10px"/>
+					<s:reset value="重置" style="height:30px;width:55px;margin-top:5px"/>
 				</s:form>
-				<a href="index.jsp">返回</a>
 			</fieldset>
+			</div>
 		</div>
 
 

@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <%
   String param = request.getParameter("param");
- ShowAllMembers sh = new ShowAllMembers(0);
+ ShowAllMembers sh  = new ShowAllMembers(0);
  sh.setUserName(param);
  sh.setOneStaff();
  AllMembersInfo info = sh.getOneStaff();
