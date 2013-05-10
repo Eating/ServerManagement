@@ -39,6 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</legend>
 				<s:form action="login_check">
 					<s:actionerror />
+					
 					<s:textfield name="loginName" label="用户"></s:textfield>
 					<br />
 					<s:password name="password" label="密码"></s:password>

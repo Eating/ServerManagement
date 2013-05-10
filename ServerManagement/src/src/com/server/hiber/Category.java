@@ -1,19 +1,11 @@
 package src.com.server.hiber;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Category entity. @author MyEclipse Persistence Tools
  */
-
-public class Category implements java.io.Serializable {
-
-	// Fields
-
-	private Integer id;
-	private String name;
-	private Set itemses = new HashSet(0);
+public class Category extends AbstractCategory implements java.io.Serializable {
 
 	// Constructors
 
@@ -23,39 +15,12 @@ public class Category implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Category(String name) {
-		this.name = name;
+		super(name);
 	}
 
 	/** full constructor */
 	public Category(String name, Set itemses) {
-		this.name = name;
-		this.itemses = itemses;
-	}
-
-	// Property accessors
-
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Set getItemses() {
-		return this.itemses;
-	}
-
-	public void setItemses(Set itemses) {
-		this.itemses = itemses;
+		super(name, itemses);
 	}
 
 }

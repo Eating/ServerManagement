@@ -7,6 +7,51 @@
 		<action name="login_check" class="eating.user.Login">
 			<result name="input">/Login.jsp</result>
 		</action>
+<!-- ******************** supermanager‘s action **********************-->		
+		<action name="deleteMembers" class="eating.user.DeleteMembers">
+			<result name="success">/SuperManager.jsp?id=1</result>
+			<result name="input">/SuperManager.jsp?id=3</result>
+		</action>
+		<action name="addManager" class="eating.user.AddManager">
+		<interceptor-ref name="validationWorkflowStack"/>
+		<result name="input">/SuperManager.jsp?id=3</result>
+		<result name="success">/AddManagerSuccess.jsp</result>
+		</action>
+		<action name="addMaintainer" class="eating.user.AddMaintainer">
+		<interceptor-ref name="validationWorkflowStack"/>
+		<result name="input">/SuperManager.jsp?id=2</result>
+		<result name="success">/AddMaintainerSuccess.jsp</result>
+		</action>
+		<action name="deleteMembersB" class="eating.user.DeleteMembersB">
+			<result name="success">/SuperManager.jsp?id=1</result>
+			<result name="input">/SuperManager.jsp?id=4</result>
+		</action>
+		<action name="acknowledgeDelete" class="eating.user.AcknowledgeDelete">
+			<result name="success">/SuperManager.jsp?id=1</result>
+		</action>
+		<action name="listMemberInfo" class="eating.user.ListMemberInfo">
+			<result name="success">/SuperManager.jsp?id=1</result>
+		</action>
+		
+		<action name="changePassword" class="eating.user.ChangePassword">
+		    <result name="input">/SuperManager.jsp?id=5</result>
+			<result name="success">/SuperManager.jsp?id=1</result>
+		</action>
+		
+		<action name="toBackup" class="eating.backup.ToBackup">
+		    <result name="input">/test.jsp</result>
+		    <result name="success">/BackupSuccess.jsp</result>
+		</action>
+		
+		<action name="toRecover" class="eating.backup.ToRecover">
+		    <result name="input">/test.jsp</result>
+		    <result name="success">/RecoverSuccess.jsp</result>
+		</action>
+		
+		
+		
+		
+		
 
 <!-- ******************** maintainer's action **********************-->
 		<action name="maintainItems" class="fish.maintainer.items.MaintainItemsAction">

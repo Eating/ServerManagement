@@ -3,17 +3,7 @@ package src.com.server.hiber;
 /**
  * Staff entity. @author MyEclipse Persistence Tools
  */
-
-public class Staff implements java.io.Serializable {
-
-	// Fields
-
-	private Integer id;
-	private Store store;
-	private String userName;
-	private String email;
-	private Integer staffType;
-	private String password;
+public class Staff extends AbstractStaff implements java.io.Serializable {
 
 	// Constructors
 
@@ -24,70 +14,13 @@ public class Staff implements java.io.Serializable {
 	/** minimal constructor */
 	public Staff(Store store, String userName, Integer staffType,
 			String password) {
-		this.store = store;
-		this.userName = userName;
-		this.staffType = staffType;
-		this.password = password;
+		super(store, userName, staffType, password);
 	}
 
 	/** full constructor */
 	public Staff(Store store, String userName, String email, Integer staffType,
 			String password) {
-		this.store = store;
-		this.userName = userName;
-		this.email = email;
-		this.staffType = staffType;
-		this.password = password;
-	}
-
-	// Property accessors
-
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Store getStore() {
-		return this.store;
-	}
-
-	public void setStore(Store store) {
-		this.store = store;
-	}
-
-	public String getUserName() {
-		return this.userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Integer getStaffType() {
-		return this.staffType;
-	}
-
-	public void setStaffType(Integer staffType) {
-		this.staffType = staffType;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+		super(store, userName, email, staffType, password);
 	}
 
 }
