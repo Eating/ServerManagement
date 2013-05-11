@@ -4,7 +4,7 @@ import="eating.user.AllMembersInfo" import="eating.user.ShowAllMembers" pageEnco
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+  <link rel="stylesheet" media="screen" type="text/css" href="css/AcknowledgeDeletePage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -31,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  sh.setOneStaff();
  AllMembersInfo info = sh.getOneStaff();
    %>
-    <div>
-    <table align="center" border="1">
+    <div class="acknowledgeInfo">
+    <table>
     <tr>
    <th colspan="2"><h3>再次确认要删除的管理员信息</h3></th>
    </tr>

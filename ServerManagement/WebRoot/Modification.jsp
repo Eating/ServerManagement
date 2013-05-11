@@ -8,7 +8,7 @@ import="eating.user.AllMembersInfo" pageEncoding="UTF-8"%>
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+ <link rel="stylesheet" media="screen" type="text/css" href="css/ModificationPage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -39,21 +39,17 @@ request.setAttribute("userId", userId);
 request.setAttribute("userName",sh.getOneStaff().getUserName());
 request.setAttribute("userEmail", sh.getOneStaff().getEmail());
  %>
- <div>
+
+ <div class="modificationInfo">
     
   <fieldset>
-				<legend>
-					<h1>
-						<font color="#9933FF">信息修改</font>
-					</h1>
-				</legend>
 				<s:form action="modification">
 					<s:actionerror />
-					<s:textfield name="userId" value="%{#request.userId}" label="用户id" readOnly="true"></s:textfield>
-					<s:textfield name="userName" value="%{#request.userName}" label="用户名" readOnly="true"></s:textfield>
-					<br />
-					<s:textfield name="userEmail" value="%{#request.userEmail}" label="用户邮箱"></s:textfield>
-					<h3>用户所在商店: <%=sh.getOneStaff().getStoreName() %>></h3>
+					<s:textfield name="userId" value="%{#request.userId}" label="用户id" readOnly="true" style="width:200px;height:30px;font-size:20px;"></s:textfield>
+					<s:textfield name="userName" value="%{#request.userName}" label="用户名" readOnly="true" style="width:200px;height:30px;font-size:20px;"></s:textfield>
+					<br/>
+					<s:textfield name="userEmail" value="%{#request.userEmail}" label="用户邮箱" style="width:270px;height:30px;font-size:20px;"></s:textfield>
+					<h3>用户所在商店: <%=sh.getOneStaff().getStoreName() %></h3>
 					<select name="store">
 					
     			<%
@@ -79,8 +75,6 @@ request.setAttribute("userEmail", sh.getOneStaff().getEmail());
 					<s:submit value="修改" />
 					<s:reset value="重置" />
 				</s:form>
-				
-				<a href="index.jsp">返回</a>
 			</fieldset>
     </div>
  

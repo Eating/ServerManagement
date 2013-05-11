@@ -34,10 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:form action="login_check">
 					<s:actionerror />
 					
-					<s:textfield name="loginName" label="用户" style="width:200px;height:30px;font-size:20px"></s:textfield>
+					<s:textfield name="loginName" label="用户" style="width:200px;height:30px;font-size:20px;background-color:#fbfbfb"></s:textfield>
 					<br/>
 					<br/>
-					<s:password name="password" label="密码" style="width:200px;height:30px;font-size:20px;margin-top:20px"></s:password>
+					<s:password name="password" label="密码" style="width:200px;height:30px;font-size:20px;margin-top:20px;background-color:#fbfbfb"></s:password>
 					<s:submit  class="submit" value="登录" style="height:30px;width:55px;margin-top:10px"/>
 					<s:reset value="重置" style="height:30px;width:55px;margin-top:5px"/>
 				</s:form>

@@ -3,6 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+ <link rel="stylesheet" media="screen" type="text/css" href="css/ModificationPage.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="css/ShowAllMembersPage.css" />
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,6 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <div class="title">
+       <img src="css/delete.png" width="30"height="30" /><h1>输入删除人员信息</h1>
+       </div>
     <%
     String param = "a";
     if(request.getParameter("param")!=null)
@@ -31,9 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     System.out.println("delete members" + manType);
     request.setAttribute("type", manType);
      %>
-     <div>
+     <div class="deleteMembers">
       <fieldset>
-    <legend>添加信息</legend>
   	<s:actionerror/>
     <s:form action="deleteMembersB">
     <s:hidden name="manType" value="%{#request.type}"/>
@@ -43,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</s:form>
 	</fieldset>
      </div>
-     <div>
+     <div >
      <%if(!param.equals("a")){ %>
      <jsp:include page="AcknowledgeDelete.jsp"><jsp:param name="param" value="<%=param%>"/></jsp:include>
      <%

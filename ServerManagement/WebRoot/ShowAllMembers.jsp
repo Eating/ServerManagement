@@ -5,7 +5,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<link rel="stylesheet" media="screen" type="text/css"
+	href="css/ShowAllMembersPage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -25,7 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	 <div >
+<div class="title">
+       <img src="css/checkAll.png" width="30"height="30" /><h1>所有人员信息</h1>
+</div>
+	 <div class="memberTable">
 	 <table>
 		<tr>
 			<!--  <th><h3>人员ID</h3></th>-->
@@ -33,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th><h3>邮件</h3></th>
 			<th><h3>所属商店</h3></th>
 			<th><h3>人员类型</h3></th>
-			<th><h3>操作</h3></th>
+			<th><h3>删除</h3></th>
+			<th><h3>修改</h3></th>
 		</tr>
 		<%
 		int type = -1;

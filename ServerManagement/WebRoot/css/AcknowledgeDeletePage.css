@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+div.acknowledgeInfo{
+	margin-top:30px;
+}
+.acknowledgeInfo h3
+{ 
+	font-size: 10px;
+	font-family:华文行楷；
+}
+.acknowledgeInfo table
+	{
+		width:100%;
+		font-size:15px;
+		empty-cells:show;
+		border-collapse:collapse;
+		margin:0 auto;
+		border: 1px solid #cad9ea;
+		color:#666;
+	}
+.acknowledgeInfo th
+	{
+		background-repeat: repeat-x;
+		height:30px;
+		overflow:hidden;
+	}
+ 
+.acknowledgeInfo td
+	{
+		height:35px;
+		
+	}
+.acknowledgeInfo td,th
+	{
+		border:2px solid #cad9ea;
+		padding:0 lem 0;
+	}
+
+.acknowledgeInfo tr:nth-child(even)
+	{
+		background-color:#f5fafe;
+		
+	}

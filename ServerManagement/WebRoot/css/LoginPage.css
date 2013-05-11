@@ -10,34 +10,15 @@ body {
 }
 
 div.logo {
-	background-image:url(login_logo.png);
-	height:110px;
-	width:380px;	
-	margin-top:120px;
+	background-image: url(login_logo.png);
+	height: 110px;
+	width: 380px;
+	margin-top: 120px;
 }
-div.login
- 	{
- 		width:380px;
- 		padding-top:10px;
- 		background-color: #FFFFFF;
- 	}
-.login textfield{
-	width:100px;
-	hight:20px;
+
+div.login {
+	width: 380px;
+	padding-top: 10px;
+	background-color: #FFFFFF;
 }
-.submit{
-	 -moz-transition: all 0.218s ease 0s;
-    -moz-user-select: none;
-    background-color: #4D90FE;
-    background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);
-    border: 1px solid #3079ED;
-    border-radius: 2px;
-    color: #FFFFFF;
-    cursor: default;
-    display: inline-block;
-    font-size: 11px;
-    font-weight: normal;
-    height: 19px;
-    min-width: 46px;
-    text-align: center;
-}
+

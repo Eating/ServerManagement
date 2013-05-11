@@ -5,7 +5,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+ <link rel="stylesheet" media="screen" type="text/css" href="css/ModificationPage.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="css/ShowAllMembersPage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,9 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        int size = list.size();
        
      %>
+     <div class="title">
+       <img src="css/add.png" width="30"height="30" /><h1>增加维护人员</h1>
+     </div>
 	<div>
 		<fieldset>
-			<legend>添加信息</legend>
 			<s:actionerror />
 			<s:form action="addMaintainer">
 				<s:textfield name="userName" label="用户名" />

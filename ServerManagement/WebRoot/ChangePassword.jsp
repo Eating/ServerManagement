@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+  <link rel="stylesheet" media="screen" type="text/css" href="css/ShowAllMembersPage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -28,16 +28,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   int userId = Integer.valueOf(request.getParameter("userId"));
   request.setAttribute("id", userId);
    %>
+   <div class="title">
+       <img src="css/change.png" width="30"height="30" /><h1>修改密码</h1>
+     </div>
       <div>
       <fieldset>
-    <legend>修改密码</legend>
   	<s:actionerror/>
     <s:form action="changePassword">
     <s:hidden name="userId" value="%{#request.id}"/>
     		<s:password name="originalPsw" label="原密码"/>
     		<s:password name="newPsw" label="新密码"/>
     		<s:password name="newPswAgain" label="再次输入新密码"/>
-			<s:submit value="删除"/>
+			<s:submit value="确定"/>
 			<s:reset value="重置"/>
 	</s:form>
 	</fieldset>

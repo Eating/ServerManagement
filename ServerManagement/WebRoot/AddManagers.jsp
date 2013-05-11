@@ -4,6 +4,8 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
+ <link rel="stylesheet" media="screen" type="text/css" href="css/ModificationPage.css" />
+  <link rel="stylesheet" media="screen" type="text/css" href="css/ShowAllMembersPage.css" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -23,6 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
+ <div class="title">
+       <img src="css/add.png" width="30"height="30" /><h1>增加管理人员</h1>
+     </div>
+     <div>
 	<%
   	int id = Integer.valueOf(request.getParameter("manType"));
   	if(id == 3){
@@ -30,9 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<h3>对不起，您没有权限添加管理员</h3>
 	<%} else
     %>
-	<div>
+	
 		<fieldset>
-			<legend>添加信息</legend>
 			<s:actionerror />
 			<s:form action="addManager">
 				<s:textfield name="userName" label="用户名" />
