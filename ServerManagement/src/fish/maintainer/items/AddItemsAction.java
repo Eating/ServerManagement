@@ -21,11 +21,19 @@ public class AddItemsAction extends ActionSupport {
 	boolean add() throws UnsupportedEncodingException {
 		if(!(addItemsName == null || addItemsName.isEmpty()))
 		{
+			if(addItemsPrice == null || addItemsPrice.isEmpty())
+				return false ;
 			float tempPrice = Float.parseFloat(addItemsPrice) ;
-			if(addItemsPrice == null || addItemsPrice.isEmpty() || tempPrice <= 0)
+			if(tempPrice <= 0)
+				return false ;
+			
+			if(addPurchasePrice == null || addPurchasePrice.isEmpty())
 				return false ;
 			float tempPrice2 = Float.parseFloat(addPurchasePrice) ;
-			if(addPurchasePrice == null || addPurchasePrice.isEmpty() || tempPrice2 <= 0)
+			if(tempPrice2 <= 0)
+				return false ;
+			
+			if(addItemsCate == 0)
 				return false ;
 			
 			Session se = HibernateSessionFactory.getSession() ;

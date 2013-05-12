@@ -64,11 +64,11 @@
         }
 	</script>
 
+<jsp:include page="MaintainItemMenu.jsp" />
+
 	<form action="searchItems">
 		请输入店铺名称：
 		<input type="text" name="search_store" />
-		请输入商品类别：
-		<input type="text" name="search_category" />
 		请输入商品名称：
 		<input type="text" name="search_item" />
 		<input type="submit" value="搜索" />
@@ -78,80 +78,6 @@
 	
 	<s:actionerror/>
 	
-	<!-- 商品类别列表 -->
-	商品类别：
-	<table>
-		<s:iterator value="#request.categorylist" id="curr">
-			<tr><td><form action="alterCategory" onsubmit="return if_alter();">
-				<input type="text" name="categoryName" value="${curr.name}" />
-				<input type="hidden" name="alterCategoryId" value="${curr.id}"></input>
-				<input type="submit" value="修改"/>
-				</form></td>
-			<td><form action="removeCategory" onsubmit="return if_rmv();">				 	
-				<input type="submit" value="删除此类别"/>
-				<input type="hidden" name="rmvCategoryId" value="${curr.id}"></input>
-		 	</form></td></tr>
-		</s:iterator>
-	</table>
-	<form action="addCategory">
-		类别名称<input type="text" name="addCateName" />
-		<input type="submit" value="添加商品类"/>
-	</form>
-	<br/>
-	
-	<!-- 商品总列表 -->
-	商品列表
-	<form action="maintainItems">
-		<select name="category_id2">
-			<option value=0>请选择商品类别</option>
-		   	<s:iterator value="#request.categorylist" id="currOp">
-		   		<option value="${currOp.id}">${currOp.name}</option>	
-		   	</s:iterator>
-		</select>	
-		
-		<input type="submit" value="查看"></input>
-	</form>
-	    
-	<table>
-		<tr><td>商品名称</td><td>商品类别</td><td>商品价格</td><td>商品进价</td></tr>
-	</table>
-	<table>
-		<s:iterator value="#request.items" id="curr">
-			<tr>
-			<td><form action="alterItems" onsubmit="return if_alter();">
-				<input type="text" name="alterItemsName" value="${curr.name}" />
-				<select name="alterItemsCate">
-					<option value="${curr.category.id}">${curr.category.name}</option>
-		   			<s:iterator value="#request.categorylist" id="currOp">
-		   				<option value="${currOp.id}">${currOp.name}</option>	
-		   			</s:iterator>
-		    	</select>
-				<input type="text" name="alterItemsPrice" onkeypress="return isPrice(event)" value="${curr.price}" /> 
-				<input type="text" name="alterPurchasePrice" onkeypress="return isPrice(event)" value="${curr.purchasePrice}" />
-				<input type="hidden" name="alterItemsId" value="${curr.id}"></input>
-				<input type="submit" value="修改"/></form></td>
-				
-			<td><form action="removeItems" onsubmit="return if_rmv();">				 	
-				<input type="submit" value="删除此商品"/>
-				<input type="hidden" name="rmvItemsId" value="${curr.id}"></input>
-		 	</form></td></tr>
-		 </s:iterator>
-	</table>
-	
-	<form action="addItems">
-		商品名称<input type="text" name="addItemsName" />
-		商品类别
-			<select name="addItemsCate">
-	   			<s:iterator value="#request.categorylist" id="currOp">
-	   				<option value="${currOp.id}">${currOp.name}</option>	
-	   			</s:iterator>
-	    	</select>
-	        商品价格<input type="text" onkeypress="return isPrice(event)" name="addItemsPrice" />
-	        商品进价<input type="text" onkeypress="return isPrice(event)" name="addPurchasePrice" />    
-		<input type="submit" value="添加商品"/>
-	</form>
-	<br/>
-
 	<!-- 各商店各类别商品列表 -->
 	各店铺商品列表
 	<form action="maintainItems">
@@ -207,12 +133,14 @@
 	<form action="addItemlist">
 	店铺
 		<select name="addListStore">
+			<option value=0>请选择店铺</option>
 	   		<s:iterator value="#request.storelist" id="currOp">
 	   			<option value="${currOp.id}">${currOp.name}</option>	
 	   		</s:iterator>
 	   	</select>
 	物品
 		<select name="addListItem">
+			<option value=0>请选择商品</option>
 	   		<s:iterator value="#request.items" id="currOp">
 	   			<option value="${currOp.id}">${currOp.name}</option>	
 	   		</s:iterator>

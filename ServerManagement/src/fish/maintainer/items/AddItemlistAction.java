@@ -35,7 +35,8 @@ public class AddItemlistAction extends ActionSupport {
 	}
 	
 	public String execute() throws Exception {
-		add() ;
+		if(addListStore != 0 && addListItem != 0)
+			add() ;
 		return SUCCESS;
 	}
 
