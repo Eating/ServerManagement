@@ -28,7 +28,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	private int category_id, store_id, category_id2 ;
 	private ItemlistBean curr ;
 	
-	void getData()
+	public void getData()
 	{
 		Session se = HibernateSessionFactory.getSession() ;
 		Criteria store_cri = se.createCriteria(Store.class) ;

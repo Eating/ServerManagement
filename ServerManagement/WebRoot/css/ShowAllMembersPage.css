@@ -22,6 +22,8 @@ div.memberTable
 {
 	width:980px;
 	margin-top:50px;
+	height:500px;
+	overflow:auto;
 }
 .memberTable h3
 { 

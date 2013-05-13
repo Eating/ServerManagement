@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="title">
        <img src="css/checkAll.png" width="30"height="30" /><h1>所有人员信息</h1>
 </div>
-	 <div class="memberTable">
+	 <div class="memberTable" style="height:500px;overflow:auto;">
 	 <table>
 		<tr>
 			<!--  <th><h3>人员ID</h3></th>-->
