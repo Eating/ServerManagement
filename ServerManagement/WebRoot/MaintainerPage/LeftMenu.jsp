@@ -5,6 +5,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <link rel="stylesheet" media="screen" type="text/css"
 	href="../css/LeftMenuPage.css" />
+<link rel="stylesheet" media="screen" type="text/css"
+	href="../css/SuperManagerPage.css" />	
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -44,13 +46,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		window.onload = startList;
 		
+		function if_rmv()
+		{
+			var r=confirm("确认删除？");
+			return r ;
+		}
 		
+		function if_alter()
+		{
+			var r=confirm("确认修改？");
+			return r ;
+		}
+		
+	    function isNum(e) {
+           var k = window.event ? e.keyCode : e.which;
+           if (((k >= 48) && (k <= 57)) || k == 8 || k == 0) {
+           } else {
+               if (window.event) {
+                   window.event.returnValue = false;
+               }
+               else {
+                   e.preventDefault(); //for firefox 
+               }
+           }
+        }
+        
+        function isPrice(e) {
+           var k = window.event ? e.keyCode : e.which;
+           if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 46) {
+           } else {
+               if (window.event) {
+                   window.event.returnValue = false;
+               }
+               else {
+                   e.preventDefault(); //for firefox 
+               }
+           }
+        } 
+        
+        //打折验证还不行哈~~
+        function checkDis(str) {
+            var t1=document.getElementById("dis").value;
+				var patrn1=/^0.[0-9]{2}$/;
+				var re = new RegExp(patrn1);
+				if(!re.test(dis)){
+						alert("打折信息有误，请输入如“0.88”");
+				}
+        }
 	</script>
-		<%
-		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
-				"userInfo");
-	%>
-   <div class="adminMenu">
+
+		<div class="topMenuDiv">
+		<ul class="topMenuUl">
+			<li class="topMenuLi"><img src="css/logo_topMenu.png"
+				width="30px" height="30px" /></li>
+			<li class="topMenuLi">您好,</li>
+			<li class="topMenuLi"><a href="Login.jsp">退出</a></li>
+		</ul>
+	</div>
+   <div class="leftMenu">
 		<ul id="nav">
 			<li><a href="maintainItems.action">商品维护</a>
 				<ul>

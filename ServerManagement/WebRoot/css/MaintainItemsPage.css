@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+div.maintainItemsRight{
+	float:left;
+	margin-top:30px;
+	margin-left:15px;
+}
+div.searchItems{
+	margin-bottom:30px;
+}
+fieldset{
+	background-color:#FFFFFF;
+}
+div.maintainItems{
+	margin-bottom:30px;
+}
+div.addItem{
+	margin-top:15px;
+}

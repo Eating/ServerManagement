@@ -1,10 +1,10 @@
 body{
 	margin:0px;
 	padding:0px;
-	
+    background-color: #fbfbfb;
 }
 
-div.adminMenu{
+div.leftMenu{
 	margin-top:0px;
 	float:left;
 	height:630px;
@@ -15,13 +15,13 @@ div.adminMenu{
 }
 
 
-.adminMenu ul { 
+.leftMenu ul { 
 margin: 0; 
 padding: 0; 
 width: 150px; /* Width of Menu Items */ 
 border-bottom: 1px solid #ccc; 
 } 
-.adminMenu li{
+.leftMenu li{
 	width: 180px;
 	height:40px;
 	line-height:20px;
@@ -32,23 +32,23 @@ border-bottom: 1px solid #ccc;
 	padding:-5px;
 	border-bottom:1px solid #d5e2eb;
 }
-.adminMenu ul li { 
+.leftMenu ul li { 
 	display: block; 
 position: relative; 
 } 
 
-.adminMenu li ul { 
+.leftMenu li ul { 
 position: absolute; 
 left: 149px; /* Set 1px less than menu width */ 
 top: 0; 
 display: none; 
 }
-.adminMenu a{
+.leftMenu a{
 	display: block; 
 	text-decoration: none;
 	color:#357388;
 }
-.adminMenu a:hover{
+.leftMenu a:hover{
 	text-decoration: none;
 	color:#d24405;
 }
@@ -61,12 +61,13 @@ display: none;
 * html ul li a { height: 1%; } 
 /* End */ 
 
-.adminMenu li:hover ul, li.over ul { display: block; }
+.leftMenu li:hover ul, li.over ul { display: block; }
 div.border{
 	width:2px;
 	float:left;
 	height:630px;
 	background:#dbe4eb;
+	margin-right:30px;
 }
 
 

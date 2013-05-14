@@ -7,10 +7,11 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<link rel="stylesheet" media="screen" type="text/css"
-	href="../css/SuperManagerPage.css" />
 	<link rel="stylesheet" media="screen" type="text/css"
 	href="../css/LeftMenuPage.css" />
+<link rel="stylesheet" media="screen" type="text/css"
+	href="../css/SuperManagerPage.css" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmls="http://www.w3.org/1999/xhtml">
 <head>
@@ -67,7 +68,7 @@
 
 
 
-   <div class="adminMenu">
+   <div class="leftMenu">
 		<ul id="nav">
 			<li>商品维护
 				<ul>
