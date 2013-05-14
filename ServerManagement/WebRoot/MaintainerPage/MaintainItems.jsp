@@ -164,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="#request.categorylist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
 				</s:iterator>
-			</select> <input type="submit" value="查看"></input>
+			</select> <input  type="submit" value="查看"></input>
 		</form>
 
 		<table>
@@ -191,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${curr.stock}</td>
 					<form action="alterItemlist" onsubmit="return if_alter();">
 					<td>
-							<input id="dis" type="text" name="alterListDis"
+							<input style="width:40px;" id="dis" type="text" name="alterListDis"
 								value="${curr.discount}" /> 
 					</td>
 							<td>
@@ -204,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</select>
 							</td>
 							<td>
-							 <input type="text" maxlength="2"
+							 <input type="text" maxlength="2" style="width:40px;"
 								onkeypress="return isNum(event)" name="alterListGiftNum"
 								value="${curr.giftNum}" /> <input type="hidden"
 								name="alterListId" value="${curr.id}"></input> 
@@ -217,7 +217,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					<form action="removeItemlist" onsubmit="return if_rmv();">
 					<td>
-							<input type="submit" value="删除该店此商品" /> <input type="hidden"
+							<input type="submit" value="删除" /> <input type="hidden"
 								name="rmvItemlistId" value="${curr.id}"></input>
 								</td>
 						</form>

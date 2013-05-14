@@ -1,19 +1,90 @@
 @CHARSET "UTF-8";
 
-div.maintainItemsRight{
-	float:left;
-	margin-top:30px;
-	margin-left:15px;
+div.maintainItemsRight {
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 1000px;
 }
-div.searchItems{
-	margin-bottom:30px;
+
+div.searchItems {
+	margin-bottom: 15px;
 }
-fieldset{
-	background-color:#FFFFFF;
+
+fieldset {
+	background-color: #FFFFFF;
 }
-div.maintainItems{
-	margin-bottom:30px;
+
+div.maintainItems {
+	margin-bottom: 30px;
+	overflow: auto;
+	width: 900px;
 }
-div.addItem{
-	margin-top:15px;
+
+.maintainItems table {
+	width: 900px;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+
+.maintainItems th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.maintainItems td {
+	height: 30px;
+}
+
+.maintainItems td,th {
+	border: 2px solid #cad9ea;
+	padding: 0 lem 0;
+}
+
+.maintainItems td:nth-child(1) {
+	width: 33%;
+}
+
+.maintainItems td:nth-child(2) {
+	width: 20%;
+}
+
+.maintainItems td:nth-child(3) {
+	width: 15%;
+}
+
+.maintainItems td:nth-child(4) {
+	width: 12%;
+}
+.maintainItems td:nth-child(5)
+	{
+		width:10%;
+	}
+	.maintainItems td:nth-child(6)
+	{
+		width:18%;
+	}
+.maintainItems td:nth-child(9) {
+	width: 8%;
+}
+
+.maintainItems td:nth-child(10) {
+	width: 8%;
+}
+
+.maintainItems td:nth-child(11) {
+	width: 8%;
+}
+
+.maintainItems tr:nth-child(even) {
+	background-color: #f5fafe;
+}
+
+div.addItem {
+	margin-top: 15px;
 }
