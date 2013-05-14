@@ -1,17 +1,31 @@
-<%@ page language="java" contentType="text/html;1"
-	import="eating.user.UserInfo" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Insert title here</title>
+<%@ page language="java" import="java.util.*" import="eating.user.UserInfo" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <link rel="stylesheet" media="screen" type="text/css"
 	href="../css/LeftMenuPage.css" />
-</head>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'LeftMenu.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
 
-<body>
-	<script language="JavaScript">
-	startList = function() {
+  </head>
+  
+  <body>
+  <script language="JavaScript">
+		startList = function() {
 			if (document.all && document.getElementById) {
 				navRoot = document.getElementById("nav");
 				for (i = 0; i < navRoot.childNodes.length; i++) {
@@ -30,83 +44,37 @@
 		}
 		window.onload = startList;
 		
-		function if_rmv()
-		{
-			var r=confirm("确认删除？");
-			return r ;
-		}
 		
-		function if_alter()
-		{
-			var r=confirm("确认修改？");
-			return r ;
-		}
-		
-	    function isNum(e) {
-           var k = window.event ? e.keyCode : e.which;
-           if (((k >= 48) && (k <= 57)) || k == 8 || k == 0) {
-           } else {
-               if (window.event) {
-                   window.event.returnValue = false;
-               }
-               else {
-                   e.preventDefault(); //for firefox 
-               }
-           }
-        }
-        
-        function isPrice(e) {
-           var k = window.event ? e.keyCode : e.which;
-           if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 46) {
-           } else {
-               if (window.event) {
-                   window.event.returnValue = false;
-               }
-               else {
-                   e.preventDefault(); //for firefox 
-               }
-           }
-        } 
-        
-        //打折验证还不行哈~~
-        function checkDis(str) {
-            var t1=document.getElementById("dis").value;
-				var patrn1=/^0.[0-9]{2}$/;
-				var re = new RegExp(patrn1);
-				if(!re.test(dis)){
-						alert("打折信息有误，请输入如“0.88”");
-				}
-        }
 	</script>
-	<%
+		<%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
 	%>
-
-
-	<!--以下为左侧菜单栏  左侧菜单栏完成 -->
-
-	<div class="adminMenu">
+   <div class="adminMenu">
 		<ul id="nav">
-			<li>商品维护
+			<li><a href="maintainItems.action">商品维护</a>
 				<ul>
-					<li><a href="maintainItems.action">各店铺商品维护</a></li>
-					<li><a href="maintainItemsB.action">商品管理</a></li>
-					<li><a href="maintainItemsC.action">商品类别管理</a></li>
-				</ul>
+					<li><a href="maintainItems.action">各店铺商品维护</a>
+					</li>
+					<li><a href="maintainItemsB.action">商品管理</a>
+					</li>
+					<li><a href="maintainItemsC.action">商品类别管理</a>
+					</li>
+				</ul></li>
+			<li><a href="maintainStores.action">商店管理</a>
 			</li>
-			<li><a href="maintainStores.action">商店管理</a></li>
-			<li><a href="maintainStock.action">库存管理</a></li>
-			<li><a href="statistics.action">销售统计</a></li>
-			<li><a href="backup.action">数据备份及恢复</a></li>
+			<li><a href="maintainStock.action">库存管理</a>
+			</li>
+			<li><a href="statistics.action">销售统计</a>
+			</li>
+			<li><a href="backup.action">数据备份及恢复</a>
+			</li>
 		</ul>
 	</div>
-	<div class="border"></div>
-
-
-
-
-
+	<div class="border">
+	
+	</div>
+	
 	<!-- <jsp:include page="MaintainItemMenu.jsp" />   -->
 	<div class="maintainItemsRight">
 		<form action="searchItems">
@@ -198,5 +166,7 @@
 
 		<br />
 	</div>
-</body>
+	
+	
+  </body>
 </html>

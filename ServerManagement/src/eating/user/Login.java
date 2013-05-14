@@ -95,7 +95,7 @@ public class Login extends ActionSupport implements ServletRequestAware, Servlet
     	}
     	else if(staffType == 4){
     		try {
-				response.sendRedirect("Maintainer.jsp");
+				response.sendRedirect("MaintainerPage/Maintainer.jsp");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

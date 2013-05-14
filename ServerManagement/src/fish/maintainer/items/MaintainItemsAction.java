@@ -113,6 +113,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	
 	public String execute() throws Exception{
 		request.setAttribute("itemlist", item_list) ;
+		
 		return SUCCESS;
 	}
 

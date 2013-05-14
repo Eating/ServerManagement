@@ -27,7 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<center>
 		<div>
 		<div class="logo">
-		
 		</div>
 		<div class="login">
 			<fieldset>

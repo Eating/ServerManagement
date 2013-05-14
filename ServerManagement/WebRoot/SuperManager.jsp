@@ -2,15 +2,14 @@
 <%@ page import="org.hibernate.Session" import="org.hibernate.Criteria"
 	import="org.hibernate.criterion.Restrictions" import="java.util.*"
 	import="eating.user.UserInfo"%>
-
+<link rel="stylesheet" media="screen" type="text/css" href="css/SuperManagerPage.css" />
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<link rel="stylesheet" media="screen" type="text/css"
-	href="css/SuperManagerPage.css" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
