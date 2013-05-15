@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+div.maintainItemsBRight {
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 1000px;
+}
+
+div.searchItems {
+	
+	margin-bottom: 15px;
+}
+
+fieldset {
+	background-color: #FFFFFF;
+}
+div.maintainItemsB {
+	margin-bottom: 30px;
+	overflow: auto;
+	width: 900px;
+	height:360px;
+}
+.maintainItemsB table {
+	width: 900px;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+
+.maintainItemsB th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.maintainItemsB td {
+	height: 30px;
+}
+
+.maintainItemsB td,th {
+	border: 2px solid #cad9ea;
+	padding: 0 lem 0;
+}
+
+.maintainItemsB td:nth-child(1) {
+	width: 33%;
+}
+
+.maintainItemsB td:nth-child(2) {
+	width: 10%;
+}
+
+.maintainItemsB td:nth-child(3) {
+	width: 8%;
+}
+
+
+.maintainItemsB td:nth-child(5)
+	{
+		width:10%;
+	}
+	.maintainItemsB td:nth-child(6)
+	{
+		width:10%;
+	}
+
+.maintainItems tr:nth-child(even) {
+	background-color: #f5fafe;
+}
+
+div.addItems {
+	margin-top: 15px;
+}
