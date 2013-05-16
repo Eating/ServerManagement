@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+div.maintainStoreRight {
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 1000px;
+}
+fieldset {
+	background-color: #FFFFFF;
+}
+div.searchItems {
+	margin-bottom: 15px;
+}
+div.showTable{
+	margin-bottom: 30px;
+	overflow: auto;
+	width: 900px;
+}
+.showTable talbe{
+	width: 100%;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+.showTable th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.showTable td {
+	height: 30px;
+}
+
+.showTable td,th {
+	border: 1px solid #cad9ea;
+	padding: 0 lem 0;
+}
+.showTable tr:nth-child(even) {
+	background-color: #f5fafe;
+}
+
+div.addStore {
+	margin-top: 15px;
+}

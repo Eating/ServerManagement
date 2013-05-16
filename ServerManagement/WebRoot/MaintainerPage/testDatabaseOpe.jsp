@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
    
   <s:form action="toBackup">
-  <s:textfield name="path" value="%{#request.path}"> </s:textfield>
+  <s:textfield name="path" value="%{#request.path}" readonly="true"> </s:textfield>
   <s:submit value="备份"></s:submit>
   </s:form>
    <%if(listOfVersion == null || listOfVersion.size() == 0){ %>

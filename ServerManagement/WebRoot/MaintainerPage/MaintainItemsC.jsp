@@ -6,6 +6,8 @@
 	href="css/LeftMenuPage.css" />
 <link rel="stylesheet" media="screen" type="text/css"
 	href="css/SuperManagerPage.css" />	
+	<link rel="stylesheet" media="screen" type="text/css"
+	href="css/MaintainItemsCPage.css" />	
 <html>
 <head>
 <title>Insert title here</title>
@@ -89,10 +91,13 @@
 	
 	</div>
 	
-	<div>
+	
+	<div class="maintainItemsCRight">
 	<s:actionerror/>
 	
 	<!-- 商品类别列表 -->
+	<fieldset>
+	<div class="category">
 	商品类别：
 	<table>
 		<s:iterator value="#request.categorylist" id="curr">
@@ -107,11 +112,18 @@
 		 	</form></td></tr>
 		</s:iterator>
 	</table>
+	</div>
+	</fieldset>
+	
+	<div class="addCategory">
+	<fieldset>
 	<form action="addCategory">
 		类别名称<input type="text" name="addCateName" />
 		<input type="submit" value="添加商品类"/>
 	</form>
 	<br/>
+	</fieldset>
 	</div>
+	
 </body>
 </html>

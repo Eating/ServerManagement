@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+div.maintainItemsCRight {
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 1000px;
+}
+fieldset {
+	background-color: #FFFFFF;
+}
+
+div.category{
+		margin-bottom: 30px;
+	overflow: auto;
+	width: 700px;
+	height:260px;
+}
+.category table {
+	width: 650px;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+.category th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.category td {
+	height: 30px;
+}
+
+.category td,th {
+	border: 2px solid #cad9ea;
+	padding: 0 lem 0;
+}
+
+.category td:nth-child(2){
+	width:10%
+}
+.category tr:nth-child(even) {
+	background-color: #f5fafe;
+}
+div.addCategory {
+	margin-top: 15px;
+}
