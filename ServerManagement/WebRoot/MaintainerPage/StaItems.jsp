@@ -3,18 +3,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base target="_blank" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 
-<a href="statistics.action">销售金额统计</a>
-<a href="staItems.action">商品销售统计</a>
-<a href="orders.action">历史订单</a>
+<a href="statistics.action" target="_self">销售金额统计</a>
+<a href="staItems.action" target="_self">商品销售统计</a>
+<a href="orders.action" target="_self">历史订单</a>
 
-<form action="statistics">
+<form action="staItems" target="_self">
 	请选择时间
-	<!-- 额。。。每逢','',/'/'总是让人头大！！！ -->
 		开始日期：<input type="text" id="d1" name="beginDateStr" value="${beginDefault}" onfocus="WdatePicker({skin:'whyGreen',maxDate:'#F{$dp.$D(\'d2\')||\'%y-%M-%d\'}'})"/>
 		结束日期：<input type="text" id="d2" name="endDateStr" value="${endDefault}" onfocus="WdatePicker({skin:'whyGreen',minDate:'#F{$dp.$D(\'d1\')}', maxDate:'%y-%M-%d'})"/>
 	请选择商店
@@ -26,17 +27,20 @@
 		</select>
 	<input type="submit" value="查看">
 </form>
-	
+
+<!-- 小意婷~这里${requestScope.storeName}是商店名称，需要显示的明显一点~~~ -->	
+您正在查看${requestScope.storeName}的销售情况	
+<br/>
+eating君~点击商品名称查看各店铺此商品的销售情况哦~^-^
 	<table>
-			<tr><td>商店名称</td><td>总利润</td><td>净利润</td></tr>
-		<s:iterator value="#request.stalist" id="curr">
-			<tr><td>${curr.storeName}</td>
-				<td>${curr.gProfit}</td>
-				<td>${curr.rProfit}</td>
+		<tr><td>商品名称</td><td>销售量</td><td>销售总额</td></tr>
+		<s:iterator value="#request.staItemList" id="curr">
+			<tr><td><a href="singleItem.action?id=${curr.itemName}" target="_blank">${curr.itemName}</a></td>
+				<td>${curr.itemNum}</td>
+				<td>${curr.totalPrice}</td>
 			</tr>
 		</s:iterator>
 	</table>
 	<s:actionmessage/>
-	
 </body>
 </html>
