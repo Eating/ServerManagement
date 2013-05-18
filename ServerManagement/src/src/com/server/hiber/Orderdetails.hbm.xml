@@ -6,26 +6,26 @@
 -->
 <hibernate-mapping>
     <class name="src.com.server.hiber.Orderdetails" table="orderdetails" catalog="android_final">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="integer">
             <column name="id" />
             <generator class="native" />
         </id>
         <many-to-one name="orders" class="src.com.server.hiber.Orders" fetch="select">
             <column name="Orders_id" not-null="true" />
         </many-to-one>
-        <property name="discount" type="java.lang.Float">
+        <property name="discount" type="float">
             <column name="discount" precision="12" scale="0" />
         </property>
-        <property name="singlePrice" type="java.lang.Float">
+        <property name="singlePrice" type="float">
             <column name="singlePrice" precision="12" scale="0" not-null="true" />
         </property>
-        <property name="totalPrice" type="java.lang.Float">
+        <property name="totalPrice" type="float">
             <column name="totalPrice" precision="12" scale="0" not-null="true" />
         </property>
-        <property name="number" type="java.lang.Integer">
+        <property name="number" type="integer">
             <column name="number" not-null="true" />
         </property>
-        <property name="itemName" type="java.lang.String">
+        <property name="itemName" type="string">
             <column name="itemName" length="45" not-null="true" />
         </property>
     </class>
