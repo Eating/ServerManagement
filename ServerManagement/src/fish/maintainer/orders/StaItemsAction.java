@@ -1,6 +1,5 @@
 package fish.maintainer.orders;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,16 +15,17 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import src.com.server.hiber.HibernateSessionFactory;
+import src.com.server.hiber.Items;
 import src.com.server.hiber.Orderdetails;
-import src.com.server.hiber.Orders;
 import src.com.server.hiber.Store;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class StatisticsAction extends ActionSupport implements ServletRequestAware{
+
+public class StaItemsAction extends ActionSupport implements ServletRequestAware{
 	private HttpServletRequest request ;
-	private List<StaBean> sta_list ;
-	private StaBean curr ;
+	private List<StaItemBean> staItem_list ;
+	private StaItemBean curr ;
 	private List<Store> store_list ;
 	private java.sql.Date now ;
 	private java.sql.Date beginDate ;
@@ -33,14 +33,15 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 	private String beginDateStr ;
 	private String endDateStr ;
 	private int store_id ;
+	private String storeName ;
 	
 	private void getData() throws ParseException {
 		Session se = HibernateSessionFactory.getSession() ;
 		Criteria store_cri = se.createCriteria(Store.class) ;
 		store_cri.add(Restrictions.and(Restrictions.ne("name", "superDepartment"), Restrictions.ne("name", "server"))) ;
 		store_list = store_cri.list() ;
+		staItem_list = new LinkedList<StaItemBean>() ;
 		
-		sta_list = new LinkedList<StaBean>() ;
 		now = new java.sql.Date(new java.util.Date().getTime()) ;
 		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd"); //制定日期格式
 		Calendar c=Calendar.getInstance();
@@ -57,39 +58,57 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 	    java.util.Date tempdate2 = df.parse(endDateStr);  
 	    endDate = new java.sql.Date(tempdate2.getTime());
 	    
-	    Iterator<Store> store_it ;
-	    List<Store> singleStore = new LinkedList<Store>() ;
-	    singleStore.add((Store) se.load(Store.class, store_id)) ;
+	    Criteria item_cri = se.createCriteria(Items.class) ;
+	    List<Items> itemlist = item_cri.list() ;
+	    Store currStore ;
 	    if(store_id == 0)
-	    	store_it = store_list.iterator() ;
+	    	storeName = "所有店铺" ;
 	    else
-	    	store_it = singleStore.iterator() ;
-	    
-	    float totalGPrice ;
-		float totalRPrice ;
-		while(store_it.hasNext())
-		{
-			totalGPrice = 0 ;
-			totalRPrice = 0 ;
-			Store currStore = store_it.next() ;
-			curr = new StaBean() ;
-			curr.setStoreName(currStore.getName()) ;
-			Criteria order_cri = se.createCriteria(Orders.class) ;
-			order_cri.add(Restrictions.and(Restrictions.eq("storeName", currStore.getName()), Restrictions.between("time", beginDate, endDate))) ;
-			if(order_cri.list().size() == 0)
-				continue ;
-			
-			Iterator<Orders> order_it = order_cri.list().iterator() ;
-			while(order_it.hasNext())
-			{
-				Orders currOrder = order_it.next() ;
-				totalGPrice += currOrder.getTotalPrice() ;
-				totalRPrice += currOrder.getProfit() ;
-			}
-			curr.setgProfit(totalGPrice) ;
-			curr.setrProfit(totalRPrice) ;
-			sta_list.add(curr) ;
-		}
+	    {
+	    	currStore = (Store)se.load(Store.class, store_id) ;
+	    	storeName = currStore.getName() ;
+	    }
+	    Iterator<Items> item_it = itemlist.iterator() ;
+	    while(item_it.hasNext())
+	    {
+	    	Items currItem = item_it.next() ;
+	    	int tempNum = 0 ;
+	    	float tempPrice = 0 ;
+	    	curr = new StaItemBean(currItem.getName()) ;
+	    	Criteria detail_cri = se.createCriteria(Orderdetails.class) ;
+	    	List<Orderdetails> detail_list ;
+	    	detail_cri.add(Restrictions.eq("itemName", currItem.getName())) ;
+		    if(store_id == 0)
+		    	detail_list = detail_cri.list() ;
+		    else
+		    {
+		    	List<Orderdetails> tempDetail = detail_cri.list() ;
+		    	detail_list = new LinkedList<Orderdetails>() ;
+		    	currStore = (Store)se.load(Store.class, store_id) ;
+		    	Iterator<Orderdetails> d_it = tempDetail.iterator() ;
+		    	while(d_it.hasNext())
+		    	{
+		    		Orderdetails currD = d_it.next() ;
+		    		if(currStore.getName().equals(currD.getOrders().getStoreName()))
+		    			detail_list.add(currD) ;
+		    	}
+		    }
+		    
+	    	if(detail_list.isEmpty())
+	    		continue ;
+	    	Iterator<Orderdetails> detail_it = detail_list.iterator() ;
+	    	while(detail_it.hasNext())
+	    	{
+	    		Orderdetails currdetail = detail_it.next() ;
+	    		tempNum += currdetail.getNumber() ;
+	    		tempPrice += currdetail.getTotalPrice() ;
+	    	}
+	    	curr.setItemNum(tempNum) ;
+	    	curr.setTotalPrice(tempPrice) ;
+	    	
+	    	staItem_list.add(curr) ;
+		   
+	    }
 		
 		se.close() ;
 	}
@@ -104,21 +123,22 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 		request.setAttribute("storelist", store_list) ;
 		request.setAttribute("beginDefault", beginDateStr) ;
 		request.setAttribute("endDefault", endDateStr) ;
-		if(sta_list.isEmpty())
+		if(staItem_list.isEmpty())
 			this.addActionMessage("您查询的信息不存在") ;
 	}
 	
 	public String execute() throws Exception{
-		request.setAttribute("stalist", sta_list) ;
+		request.setAttribute("staItemList", staItem_list) ;
+		request.setAttribute("storeName", storeName) ;
 		return SUCCESS;
 	}
 	
-	public List<StaBean> getSta_list() {
-		return sta_list;
+	public List<StaItemBean> getStaItem_list() {
+		return staItem_list;
 	}
 
-	public void setSta_list(List<StaBean> sta_list) {
-		this.sta_list = sta_list;
+	public void setStaItem_list(List<StaItemBean> staItem_list) {
+		this.staItem_list = staItem_list;
 	}
 
 	public List<Store> getStore_list() {
@@ -127,14 +147,6 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 
 	public void setStore_list(List<Store> store_list) {
 		this.store_list = store_list;
-	}
-
-	public java.sql.Date getNow() {
-		return now;
-	}
-
-	public void setNow(java.sql.Date now) {
-		this.now = now;
 	}
 
 	public java.sql.Date getBeginDate() {
@@ -168,7 +180,7 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 	public void setEndDateStr(String endDateStr) {
 		this.endDateStr = endDateStr;
 	}
-	
+
 	public int getStore_id() {
 		return store_id;
 	}
@@ -177,7 +189,16 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 		this.store_id = store_id;
 	}
 
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
 	public void setServletRequest(HttpServletRequest req) {
 		request = req ;
 	}
+
 }

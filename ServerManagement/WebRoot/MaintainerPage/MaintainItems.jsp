@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" import="eating.user.UserInfo" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -134,7 +135,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	</div>
 	
-	<!-- <jsp:include page="MaintainItemMenu.jsp" />   -->
 	<div class="maintainItemsRight">
 	<div class="searchItems">
 	<fieldset>
@@ -159,7 +159,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="#request.storelist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
 				</s:iterator>
-			</select> <select name="category_id">
+			</select> 
+			<select name="category_id">
 				<option value=0>请选择商品类别</option>
 				<s:iterator value="#request.categorylist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
@@ -194,33 +195,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input style="width:40px;" id="dis" type="text" name="alterListDis"
 								value="${curr.discount}" /> 
 					</td>
-							<td>
-								<select name="alterListGift">
-								<option value=${curr.gift_id}>${curr.giftName}</option>
-								<option value=0>取消赠品</option>
-								<s:iterator value="#request.items" id="currOp">
-									<option value="${currOp.id}">${currOp.name}</option>
-								</s:iterator>
-							</select>
+						<td>
+						<select name="alterListGift">
+							<option value=${curr.gift_id}>${curr.giftName}</option>
+							<option value=0>取消赠品</option>
+							<s:iterator value="#request.items" id="currOp">
+								<option value="${currOp.id}">${currOp.name}</option>
+							</s:iterator>
+						</select>
+						</td>
+						<td>
+						 <input type="text" maxlength="2" style="width:40px;"
+							onkeypress="return isNum(event)" name="alterListGiftNum"
+							value="${curr.giftNum}" /> <input type="hidden"
+							name="alterListId" value="${curr.id}"></input> 
+						</td>	
+						
+						<td>	
+							<input type="submit" value="修改" />
 							</td>
-							<td>
-							 <input type="text" maxlength="2" style="width:40px;"
-								onkeypress="return isNum(event)" name="alterListGiftNum"
-								value="${curr.giftNum}" /> <input type="hidden"
-								name="alterListId" value="${curr.id}"></input> 
-							</td>	
-							
-							<td>	
-								<input type="submit" value="修改" />
-								</td>
 						</form>
 					
 					<form action="removeItemlist" onsubmit="return if_rmv();">
-					<td>
+						<td>
 							<input type="submit" value="删除" /> <input type="hidden"
 								name="rmvItemlistId" value="${curr.id}"></input>
-								</td>
-						</form>
+						</td>
+					</form>
 					
 				</tr>
 			</s:iterator>

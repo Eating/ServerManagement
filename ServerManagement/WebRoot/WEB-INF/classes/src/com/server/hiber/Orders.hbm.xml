@@ -11,7 +11,7 @@
             <generator class="native" />
         </id>
         <property name="time" type="timestamp">
-            <column name="time" length="0" not-null="true" />
+            <column name="time" length="19" not-null="true" />
         </property>
         <property name="totalPrice" type="float">
             <column name="totalPrice" precision="12" scale="0" not-null="true" />

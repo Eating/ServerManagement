@@ -159,5 +159,24 @@
 			<result name="success">/MaintainerPage/Statistics.jsp</result>
 		</action>
 		
+		<action name="orders" class="fish.maintainer.orders.OrdersAction">
+			<result name="input">/MaintainerPage/Orders.jsp</result>
+			<result name="success">/MaintainerPage/Orders.jsp</result>
+		</action>
+		
+		<action name="orderDetail" class="fish.maintainer.orders.OrderDetailAction">
+			<result name="input">/MaintainerPage/OrderDetail.jsp</result>
+			<result name="success">/MaintainerPage/OrderDetail.jsp</result>
+		</action>
+		
+		<action name="staItems" class="fish.maintainer.orders.StaItemsAction">
+			<result name="input">/MaintainerPage/StaItems.jsp</result>
+			<result name="success">/MaintainerPage/StaItems.jsp</result>
+		</action>
+		
+		<action name="singleItem" class="fish.maintainer.orders.SingleItemAction">
+			<result name="input">/MaintainerPage/SingleItem.jsp</result>
+			<result name="success">/MaintainerPage/SingleItem.jsp</result>
+		</action>
 	</package>
 </struts>    

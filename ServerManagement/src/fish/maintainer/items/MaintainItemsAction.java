@@ -32,6 +32,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	{
 		Session se = HibernateSessionFactory.getSession() ;
 		Criteria store_cri = se.createCriteria(Store.class) ;
+		store_cri.add(Restrictions.and(Restrictions.ne("name", "superDepartment"), Restrictions.ne("name", "server"))) ;
 		store_list = store_cri.list() ;
 		Criteria category_cri = se.createCriteria(Category.class) ;
 		category_list = category_cri.list() ;
