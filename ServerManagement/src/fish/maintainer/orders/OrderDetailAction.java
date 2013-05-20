@@ -1,5 +1,6 @@
 package fish.maintainer.orders;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +22,9 @@ public class OrderDetailAction extends ActionSupport implements ServletRequestAw
 	
 	private void getDate() {
 		Session se = HibernateSessionFactory.getSession() ;
-		currOrder = (Orders) se.load(Orders.class, id) ;
+		currOrder = (Orders)se.load(Orders.class, id) ;
 		detail_list = currOrder.getOrderdetailses() ;
+		Iterator<Orderdetails> it = detail_list.iterator() ;
 		se.close() ;
 	}
 	
@@ -39,14 +41,6 @@ public class OrderDetailAction extends ActionSupport implements ServletRequestAw
 
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public Orders getCurrOrder() {
-		return currOrder;
-	}
-
-	public void setCurrOrder(Orders currOrder) {
-		this.currOrder = currOrder;
 	}
 
 	public Set<Orderdetails> getDetail_list() {

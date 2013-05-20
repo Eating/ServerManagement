@@ -63,11 +63,6 @@
 			<result name="input">/MaintainerPage/MaintainItemsC.jsp</result>
 			<result name="success">/MaintainerPage/MaintainItemsC.jsp</result>
 		</action>
-
-		<action name="searchItems" class="fish.maintainer.items.SearchItemsAction">
-			<result name="input">/MaintainerPage/SearchItems.jsp</result>
-			<result name="success">/MaintainerPage/SearchItems.jsp</result>
-		</action>
 		
 		<action name="removeCategory" class="fish.maintainer.items.RmvCategoryAction">
 			<result name="input" type="redirect">maintainItemsC.action</result>
@@ -177,6 +172,21 @@
 		<action name="singleItem" class="fish.maintainer.orders.SingleItemAction">
 			<result name="input">/MaintainerPage/SingleItem.jsp</result>
 			<result name="success">/MaintainerPage/SingleItem.jsp</result>
+		</action>
+		
+		<action name="searchStore" class="fish.maintainer.stores.SearchStoreAction">
+			<result name="input">/MaintainerPage/SearchedStore.jsp</result>
+			<result name="success">/MaintainerPage/SearchedStore.jsp</result>
+		</action>
+		
+		<action name="searchItem" class="fish.maintainer.items.SearchItemsAction">
+			<result name="input">/MaintainerPage/SearchedItem.jsp</result>
+			<result name="success">/MaintainerPage/SearchedItem.jsp</result>
+		</action>
+		
+		<action name="searchItemlist" class="fish.maintainer.items.SearchItemlistAction">
+			<result name="input">/MaintainerPage/SearchedItemlist.jsp</result>
+			<result name="success">/MaintainerPage/SearchedItemlist.jsp</result>
 		</action>
 	</package>
 </struts>    

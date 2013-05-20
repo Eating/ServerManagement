@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;1"
+<%@ page language="java" contentType="text/html;"
 	import="eating.user.UserInfo" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <link rel="stylesheet" media="screen" type="text/css"
@@ -11,7 +11,6 @@
 <html>
 <head>
 <title>Insert title here</title>
-
 
 <style type="text/css">
 input {
@@ -93,7 +92,7 @@ input {
 			<li><a href="maintainStores.action">商店管理</a></li>
 			<li><a href="maintainStock.action">库存管理</a></li>
 			<li><a href="statistics.action">销售统计</a></li>
-			<li><a href="backup.action">数据备份及恢复</a></li>
+			<li><a href="MaintainerPage/testDatabaseOpe.jsp">数据备份及恢复</a></li>
 		</ul>
 	</div>
 	<div class="border"></div>
@@ -105,7 +104,7 @@ input {
 	<div class="maintainItemsBRight">
 		<div class="searchItems">
 			<fieldset>
-				<form action="searchItems">
+				<form action="searchItem" target="_blank">
 					请输入商品名称： <input type="text" name="search_item" /> <input
 						type="submit" value="搜索" />
 				</form>

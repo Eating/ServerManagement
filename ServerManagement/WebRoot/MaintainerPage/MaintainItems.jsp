@@ -22,17 +22,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
   </head>
   
   <body>
-  <%
+<%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
-				%>
+%>
   <script language="JavaScript">
 		startList = function() {
 			if (document.all && document.getElementById) {
@@ -127,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li><a href="statistics.action">销售统计</a>
 			</li>
-			<li><a href="backup.action">数据备份及恢复</a>
+			<li><a href="MaintainerPage/testDatabaseOpe.jsp">数据备份及恢复</a>
 			</li>
 		</ul>
 	</div>
@@ -138,9 +134,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="maintainItemsRight">
 	<div class="searchItems">
 	<fieldset>
-		<form action="searchItems">
-			请输入店铺名称： <input type="text" name="search_store" /> 请输入商品名称： <input
-				type="text" name="search_item" /> <input type="submit" value="搜索" />
+		<form action="searchItemlist" target="_blank">
+			请输入店铺名称： <input type="text" name="search_store" /> 
+			请输入商品名称： <input type="text" name="search_item" /> 
+			<input type="submit" value="搜索" />
 		</form>
 
 		<br />
@@ -226,9 +223,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 			</s:iterator>
 		</table>
-		
       </div>
       </fieldset>
+      
       <div class="addItem" >
       <fieldset>
 		<form action="addItemlist">

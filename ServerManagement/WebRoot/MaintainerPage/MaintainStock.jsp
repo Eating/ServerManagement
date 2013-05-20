@@ -73,7 +73,7 @@
 			</li>
 			<li><a href="statistics.action">销售统计</a>
 			</li>
-			<li><a href="backup.action">数据备份及恢复</a>
+			<li><a href="MaintainerPage/testDatabaseOpe.jsp">数据备份及恢复</a>
 			</li>
 		</ul>
 	</div>

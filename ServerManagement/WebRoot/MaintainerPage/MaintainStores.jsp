@@ -81,7 +81,7 @@
 			<li><a href="maintainStores.action">商店管理</a></li>
 			<li><a href="maintainStock.action">库存管理</a></li>
 			<li><a href="statistics.action">销售统计</a></li>
-			<li><a href="backup.action">数据备份及恢复</a></li>
+			<li><a href="MaintainerPage/testDatabaseOpe.jsp">数据备份及恢复</a></li>
 		</ul>
 	</div>
 	<div class="border"></div>
@@ -91,9 +91,9 @@
 	<div class="maintainStoreRight">
 		<div class="searchItems">
 			<fieldset>
-				<form action="searchItems">
-					请输入店铺名称： <input type="text" name="search_store" /> <input
-						type="submit" value="搜索" />
+				<form action="searchStore" target="_blank">
+					请输入店铺名称： <input type="text" name="search_store" /> 
+					<input type="submit" value="搜索" />
 				</form>
 			</fieldset>
 		</div>
@@ -114,7 +114,7 @@
 						
 								<td><input type="text" name="storeName" value="${curr.name}" /></td>
 								<td><input type="text" name="storeAddr" value="${curr.address}" /></td>
-								<td><input type="hidden" name="alterStoreId" value="${curr.id}"></input> 
+								<td><input type="hidden" name="alterStoreId" value="${curr.id}" /> 
 								<input type="submit" value="修改" /></td>
 							</form>
 						
