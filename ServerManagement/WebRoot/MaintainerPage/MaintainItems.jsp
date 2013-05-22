@@ -145,20 +145,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
      <fieldset>
     <div class="maintainItems" style="height:330px;overflow:auto;">
-   
-		<s:actionerror />
 
 		<!-- 各商店各类别商品列表 -->
 		各店铺商品列表
 		<form action="maintainItems">
 			<select name="store_id">
-				<option value=0>请选择店铺</option>
+				<option value="${requestScope.store_id}">${requestScope.storeDefault}</option>
+				<option value=0>所有店铺</option>
 				<s:iterator value="#request.storelist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
 				</s:iterator>
 			</select> 
 			<select name="category_id">
-				<option value=0>请选择商品类别</option>
+				<option value="${requestScope.category_id}">${requestScope.cateDefault}</option>
+				<option value=0>所有类别</option>
 				<s:iterator value="#request.categorylist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
 				</s:iterator>
@@ -223,6 +223,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 			</s:iterator>
 		</table>
+		<s:actionmessage />
+		<s:actionerror />
       </div>
       </fieldset>
       
@@ -241,8 +243,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</s:iterator>
 			</select> <input type="submit" value="添加商品" />
 		</form>
-
-		<s:actionmessage />
 
 		<br />
 		</fieldset>

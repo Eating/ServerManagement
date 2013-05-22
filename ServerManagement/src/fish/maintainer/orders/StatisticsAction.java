@@ -33,6 +33,7 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 	private String beginDateStr ;
 	private String endDateStr ;
 	private int store_id ;
+	private String storeDefault ;
 	
 	private void getData() throws ParseException {
 		Session se = HibernateSessionFactory.getSession() ;
@@ -61,9 +62,15 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 	    List<Store> singleStore = new LinkedList<Store>() ;
 	    singleStore.add((Store) se.load(Store.class, store_id)) ;
 	    if(store_id == 0)
+	    {
+	    	storeDefault = "所有店铺" ;
 	    	store_it = store_list.iterator() ;
+	    }
 	    else
+	    {
+	    	storeDefault = ((Store)se.load(Store.class, store_id)).getName() ;
 	    	store_it = singleStore.iterator() ;
+	    }
 	    
 	    float totalGPrice ;
 		float totalRPrice ;
@@ -104,6 +111,7 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 		request.setAttribute("storelist", store_list) ;
 		request.setAttribute("beginDefault", beginDateStr) ;
 		request.setAttribute("endDefault", endDateStr) ;
+		request.setAttribute("storeDefault", storeDefault) ;
 		if(sta_list.isEmpty())
 			this.addActionMessage("您查询的信息不存在") ;
 	}
@@ -113,6 +121,14 @@ public class StatisticsAction extends ActionSupport implements ServletRequestAwa
 		return SUCCESS;
 	}
 	
+	public String getStoreDefault() {
+		return storeDefault;
+	}
+
+	public void setStoreDefault(String storeDefault) {
+		this.storeDefault = storeDefault;
+	}
+
 	public List<StaBean> getSta_list() {
 		return sta_list;
 	}

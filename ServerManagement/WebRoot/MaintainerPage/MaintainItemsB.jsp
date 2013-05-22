@@ -121,7 +121,8 @@ input {
 				商品列表
 				<form action="maintainItemsB">
 					<select name="category_id2">
-						<option value=0>请选择商品类别</option>
+						<option value="${requestScope.category_id2}">${requestScope.cateDefault}</option>
+						<option value=0>所有类别</option>
 						<s:iterator value="#request.categorylist" id="currOp">
 							<option value="${currOp.id}">${currOp.name}</option>
 						</s:iterator>

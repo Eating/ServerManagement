@@ -26,6 +26,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	private List<Store> store_list ;
 	private List<Category> category_list ;
 	private int category_id, store_id ;
+	private String cateDefault, storeDefault ;
 	private ItemlistBean curr ;
 	
 	public void getData()
@@ -46,6 +47,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		//default
 		if(category_id == 0 && store_id == 0)
 		{	
+			cateDefault = "所有类别" ;
+			storeDefault = "所有店铺" ;
 			while(list_it.hasNext())
 			{
 				curr = new ItemlistBean(list_it.next()) ;
@@ -56,6 +59,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		//given store
 		else if(category_id == 0 && store_id != 0)
 		{
+			cateDefault = "所有类别" ;
+			storeDefault = ((Store)se.load(Store.class, store_id)).getName() ;
 			while(list_it.hasNext())
 			{
 				Itemlist temp_item = list_it.next() ;
@@ -70,6 +75,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		//given category
 		else if(category_id != 0 && store_id == 0)
 		{
+			cateDefault = ((Category)se.load(Category.class, category_id)).getName() ;
+			storeDefault = "所有店铺" ;
 			while(list_it.hasNext())
 			{
 				Itemlist temp_item = list_it.next() ;
@@ -84,6 +91,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		//given category and store
 		else
 		{
+			cateDefault = ((Category)se.load(Category.class, category_id)).getName() ;
+			storeDefault = ((Store)se.load(Store.class, store_id)).getName() ;
 			while(list_it.hasNext())
 			{
 				Itemlist temp_item = list_it.next() ;
@@ -103,6 +112,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		request.setAttribute("categorylist", category_list) ;
 		request.setAttribute("storelist", store_list) ;
 		request.setAttribute("items", items) ;
+		request.setAttribute("cateDefault", cateDefault) ;
+		request.setAttribute("storeDefault", storeDefault) ;
 		if(item_list.isEmpty())
 			this.addActionMessage("您查询的信息不存在") ;
 	}
@@ -111,6 +122,22 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		request.setAttribute("itemlist", item_list) ;
 		
 		return SUCCESS;
+	}
+	
+	public String getCateDefault() {
+		return cateDefault;
+	}
+
+	public void setCateDefault(String cateDefault) {
+		this.cateDefault = cateDefault;
+	}
+
+	public String getStoreDefault() {
+		return storeDefault;
+	}
+
+	public void setStoreDefault(String storeDefault) {
+		this.storeDefault = storeDefault;
 	}
 
 	public List<ItemlistBean> getItem_list() {

@@ -23,7 +23,8 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 	private HttpServletRequest request ;
 	private List<Items> items ;
 	private List<Category> category_list ;
-	private int category_id2, store_id ;
+	private int category_id2 ;
+	private String cateDefault ;
 	
 	public void getData()
 	{
@@ -35,7 +36,11 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 		{
 			Category temp_cate = (Category)se.load(Category.class, category_id2) ;
 			items_cri.add(Restrictions.eq("category", temp_cate)) ;
+			cateDefault = temp_cate.getName() ;
 		}
+		else
+			cateDefault = "所有类别" ;
+		
 		items = items_cri.list() ;
 		
 		se.close() ;
@@ -45,7 +50,16 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 		getData();
 		request.setAttribute("categorylist", category_list) ;
 		request.setAttribute("items", items) ;
+		request.setAttribute("cateDefault", cateDefault) ;
 		return SUCCESS;
+	}
+	
+	public String getCateDefault() {
+		return cateDefault;
+	}
+
+	public void setCateDefault(String cateDefault) {
+		this.cateDefault = cateDefault;
 	}
 
 	public List<Category> getCategory_list() {
@@ -54,14 +68,6 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 
 	public void setCategory_list(List<Category> category_list) {
 		this.category_list = category_list;
-	}
-
-	public int getStore_id() {
-		return store_id;
-	}
-
-	public void setStore_id(int store_id) {
-		this.store_id = store_id;
 	}
 
 	public List<Items> getItems() {

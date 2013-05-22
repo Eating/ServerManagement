@@ -31,6 +31,7 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware{
 	private String beginDateStr ;
 	private String endDateStr ;
 	private int store_id ;
+	private String storeDefault ;
 	
 	private void getData() throws ParseException {
 		Session se = HibernateSessionFactory.getSession() ;
@@ -58,9 +59,13 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware{
 	    Iterator<Store> store_it ;
 	    List<Store> singleStore = new LinkedList<Store>() ;   
 	    if(store_id == 0)
+	    {
+	    	storeDefault = "所有店铺" ;
 	    	store_it = store_list.iterator() ;
+	    }
 	    else
 	    {
+	    	storeDefault = ((Store)se.load(Store.class, store_id)).getName() ;
 	    	singleStore.add((Store)se.load(Store.class, store_id)) ;
 	    	store_it = singleStore.iterator() ;
 	    }
@@ -94,6 +99,7 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware{
 		request.setAttribute("storelist", store_list) ;
 		request.setAttribute("beginDefault", beginDateStr) ;
 		request.setAttribute("endDefault", endDateStr) ;
+		request.setAttribute("storeDefault", storeDefault) ;
 		if(order_list.isEmpty())
 			this.addActionMessage("您查询的信息不存在") ;
 	}
@@ -103,6 +109,14 @@ public class OrdersAction extends ActionSupport implements ServletRequestAware{
 		return SUCCESS;
 	}
 	
+	public String getStoreDefault() {
+		return storeDefault;
+	}
+
+	public void setStoreDefault(String storeDefault) {
+		this.storeDefault = storeDefault;
+	}
+
 	public List<Orders> getOrder_list() {
 		return order_list;
 	}

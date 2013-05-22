@@ -20,7 +20,8 @@
 		结束日期：<input type="text" id="d2" name="endDateStr" value="${endDefault}" onfocus="WdatePicker({skin:'whyGreen',minDate:'#F{$dp.$D(\'d1\')}', maxDate:'%y-%M-%d'})"/>
 	请选择商店
 		<select name="store_id">
-			<option value=0>请选择店铺</option>
+			<option value="${requestScope.store_id}">${requestScope.storeName}</option>
+			<option value=0>所有店铺</option>
 			<s:iterator value="#request.storelist" id="currOp">
 				<option value="${currOp.id}">${currOp.name}</option>
 			</s:iterator>

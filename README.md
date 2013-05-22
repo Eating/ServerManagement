@@ -1,17 +1,19 @@
-ï»¿ServerManagement
+ServerManagement
 ================
 **********2013.05.22***********
-å°†MaintainItemsAction.javaåˆ†ä¸º3ä¸ªç±»ä»¥æé«˜æ•ˆçŽ‡~ä¿®å¤äº†ä¿®æ”¹èµ å“æ•°é‡æ—¶å‡ºçŽ°çš„bug
+1.½«MaintainItemsAction.java·ÖÎª3¸öÀàÒÔÌá¸ßÐ§ÂÊ~ÐÞ¸´ÁËÐÞ¸ÄÔùÆ·ÊýÁ¿Ê±³öÏÖµÄbug¡£
+2.ÍêÉÆÏ¸½Ú£ºÑ¡ÔñÁÐ±íºóÏÔÊ¾µ±Ç°Ñ¡Ïî
+
 **********2013.05.20***********
-å®Œæˆæœç´¢åŠŸèƒ½ã€‚
+Íê³ÉËÑË÷¹¦ÄÜ¡£
 **********2013.05.17***********
-å®Œæˆé”€å”®ç»Ÿè®¡å…¨éƒ¨å†…å®¹ã€‚ä¹‹åŽéœ€è¦å†™æœç´¢åŠŸèƒ½ï¼Œä»¥åŠå®Œå–„å‡ºé”™å¤„ç†ã€‚æ­¤å¤–ï¼Œè¿˜éœ€è¦è®¨è®ºæ˜¯å¦å®žçŽ°åˆ†é¡µã€‚
+Íê³ÉÏúÊÛÍ³¼ÆÈ«²¿ÄÚÈÝ¡£Ö®ºóÐèÒªÐ´ËÑË÷¹¦ÄÜ£¬ÒÔ¼°ÍêÉÆ³ö´í´¦Àí¡£´ËÍâ£¬»¹ÐèÒªÌÖÂÛÊÇ·ñÊµÏÖ·ÖÒ³¡£
 *******************************
-ä½¿ç”¨myeclipseåˆ›å»ºäº†ä¸€ä¸ªweb projectï¼Œç”¨äº†hibernateç”Ÿæˆåå‘å·¥ç¨‹ã€‚
-å¥½ä¹…æ²¡ç”¨äº†ç”Ÿç–äº†ï¼Œä¸çŸ¥é“å¯¹ä¸å¯¹ã€‚ä»¥åŽæŽ¥ç€å†™ä¸œè¥¿
+Ê¹ÓÃmyeclipse´´½¨ÁËÒ»¸öweb project£¬ÓÃÁËhibernateÉú³É·´Ïò¹¤³Ì¡£
+ºÃ¾ÃÃ»ÓÃÁËÉúÊèÁË£¬²»ÖªµÀ¶Ô²»¶Ô¡£ÒÔºó½Ó×ÅÐ´¶«Î÷
 *********2013.05.10***********
-å®Œæˆäº†å•†å“ç®¡ç†ã€åº“å­˜ç®¡ç†ã€åº—é“ºç®¡ç†åŠéƒ¨åˆ†é”€å”®ç»Ÿè®¡åŠŸèƒ½ï¼Œå‡ºé”™å¤„ç†è¿˜æœ‰å¾…å®Œå–„ã€‚ä»·æ ¼å’Œæ•°é‡éƒ¨åˆ†é‡‡ç”¨äº†è¾“å…¥æŽ§åˆ¶ï¼Œæ•°é‡åªèƒ½è¾“å…¥æ•°å­—ï¼Œä»·æ ¼åªèƒ½è¾“å…¥å°æ•°ç‚¹ä¸Žæ•°å­—ï¼Œdiscountçš„è¾“å…¥æŽ§åˆ¶è¿˜æœªå®Œæˆã€‚
-ä»ŽMaintainerPage/Maintainer.jsp å¯è¿›å…¥å„ä¸ªé¡µé¢ã€‚
+Íê³ÉÁËÉÌÆ·¹ÜÀí¡¢¿â´æ¹ÜÀí¡¢µêÆÌ¹ÜÀí¼°²¿·ÖÏúÊÛÍ³¼Æ¹¦ÄÜ£¬³ö´í´¦Àí»¹ÓÐ´ýÍêÉÆ¡£¼Û¸ñºÍÊýÁ¿²¿·Ö²ÉÓÃÁËÊäÈë¿ØÖÆ£¬ÊýÁ¿Ö»ÄÜÊäÈëÊý×Ö£¬¼Û¸ñÖ»ÄÜÊäÈëÐ¡ÊýµãÓëÊý×Ö£¬discountµÄÊäÈë¿ØÖÆ»¹Î´Íê³É¡£
+´ÓMaintainerPage/Maintainer.jsp ¿É½øÈë¸÷¸öÒ³Ãæ¡£
 
 *********2013.05.12***********
-æŠŠå•†å“ç®¡ç†åˆ†æˆäº†3ä¸ªé¡µé¢ï¼Œèœå•é¡µé¢ä¸ºMaintainerPage/MaintainItemMenu.jspï¼Œåœ¨3ä¸ªé¡µé¢ä¸­includeäº†è¿™ä¸ªèœå•é¡µé¢ã€‚å°æ„å©·éœ€è¦æŠŠMaintainItemMenu.jspç¾ŽåŒ–ä¸€ä¸‹å¹¶ä¸”åœ¨3ä¸ªé¡µé¢ä¸­è°ƒæ•´includeçš„ä½ç½®ã€‚
+°ÑÉÌÆ·¹ÜÀí·Ö³ÉÁË3¸öÒ³Ãæ£¬²Ëµ¥Ò³ÃæÎªMaintainerPage/MaintainItemMenu.jsp£¬ÔÚ3¸öÒ³ÃæÖÐincludeÁËÕâ¸ö²Ëµ¥Ò³Ãæ¡£Ð¡ÒâæÃÐèÒª°ÑMaintainItemMenu.jspÃÀ»¯Ò»ÏÂ²¢ÇÒÔÚ3¸öÒ³ÃæÖÐµ÷ÕûincludeµÄÎ»ÖÃ¡£

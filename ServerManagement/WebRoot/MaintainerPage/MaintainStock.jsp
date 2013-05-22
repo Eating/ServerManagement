@@ -85,14 +85,16 @@
 	<div class="maintainStockRight">
 	<form action="maintainStock">
 		<select name="store_id">
-			<option value=0>请选择店铺</option>
+			<option value="${requestScope.store_id}">${requestScope.storeDefault}</option>
+			<option value=0>所有店铺</option>
 	   		<s:iterator value="#request.storelist" id="currOp">
 	   			<option value="${currOp.id}">${currOp.name}</option>	
 	   		</s:iterator>
 	   	</select>
 	
 		<select name="category_id">
-			<option value=0>请选择商品类别</option>
+			<option value="${requestScope.category_id}">${requestScope.cateDefault}</option>
+			<option value=0>所有类别</option>
 	   		<s:iterator value="#request.categorylist" id="currOp">
 	   			<option value="${currOp.id}">${currOp.name}</option>	
 	   		</s:iterator>
