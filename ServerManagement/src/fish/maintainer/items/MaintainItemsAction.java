@@ -25,7 +25,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	private List<Items> items ;
 	private List<Store> store_list ;
 	private List<Category> category_list ;
-	private int category_id, store_id, category_id2 ;
+	private int category_id, store_id ;
 	private ItemlistBean curr ;
 	
 	public void getData()
@@ -37,11 +37,6 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		Criteria category_cri = se.createCriteria(Category.class) ;
 		category_list = category_cri.list() ;
 		Criteria items_cri = se.createCriteria(Items.class) ;
-		if(category_id2 != 0)
-		{
-			Category temp_cate = (Category)se.load(Category.class, category_id2) ;
-			items_cri.add(Restrictions.eq("category", temp_cate)) ;
-		}
 		items = items_cri.list() ;
 		
 		item_list = new LinkedList<ItemlistBean>() ;
@@ -164,14 +159,6 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 
 	public void setItems(List<Items> items) {
 		this.items = items;
-	}
-
-	public int getCategory_id2() {
-		return category_id2;
-	}
-
-	public void setCategory_id2(int category_id2) {
-		this.category_id2 = category_id2;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

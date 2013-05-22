@@ -195,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 						<select name="alterListGift">
 							<option value=${curr.gift_id}>${curr.giftName}</option>
-							<option value=0>取消赠品</option>
+							<option value=0>无赠品</option>
 							<s:iterator value="#request.items" id="currOp">
 								<option value="${currOp.id}">${currOp.name}</option>
 							</s:iterator>

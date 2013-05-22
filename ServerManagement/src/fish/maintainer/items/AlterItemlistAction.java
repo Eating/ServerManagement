@@ -37,7 +37,10 @@ public class AlterItemlistAction extends ActionSupport {
 			if(alterListGiftNum == null || alterListGiftNum.isEmpty() || alterListGiftNum.equals("0"))
 				currList.setGiftNum(1) ;
 			else
-				currList.setGiftNum(Integer.getInteger(alterListGiftNum)) ;
+			{
+				int newGirfNum = Integer.parseInt(alterListGiftNum) ;
+				currList.setGiftNum(newGirfNum) ;
+			}
 		}
 		else
 		{
