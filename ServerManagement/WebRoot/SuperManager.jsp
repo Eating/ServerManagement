@@ -65,7 +65,7 @@
 		<ul>
 			<li class="check"><a href="SuperManager.jsp?id=1">所有人员信息</a>
 			</li>
-			<li class="add"><a href="SuperManager.jsp?id=2">增加维护员</a>
+			<li class="add"><a href="SuperManager.jsp?id=2">增加销售员</a>
 			</li>
 			<li class="add"><a href="SuperManager.jsp?id=3">增加管理人员</a>
 			</li>

@@ -88,7 +88,7 @@ public class AddMaintainer extends ActionSupport implements ServletRequestAware,
 	    	Store sto = (Store)se.load(Store.class, Integer.valueOf(setStore));
 	    	sta.setUserName(userName);
 	    	sta.setEmail(userEmail);
-	    	sta.setStaffType(4);
+	    	sta.setStaffType(5);
 	    	sta.setPassword(password);
 	    	sta.setStore(sto);
 	    	Transaction tran = se.beginTransaction();

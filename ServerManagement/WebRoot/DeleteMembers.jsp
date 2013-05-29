@@ -25,6 +25,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <script language="JavaScript">
+  function validator4(e){
+  var userName = document.getElementById("userName").value;
+  if(userName.length == 0){
+  alert("用户名不能为空");
+  e.preventDefault();
+  }
+  else if(userName.length > 15){
+  alert("用户名长度控制在15字符以内");
+  e.preventDefault();
+  }
+  else{
+  var reg = new RegExp(/^[A-Za-z0-9]+$/);
+  if(!reg.test(userName)){
+  alert("用户名含有非法字符，只能由数字和字母组成");
+  e.preventDefault();
+  }
+  
+  }
+  </script>
   <div class="title">
        <img src="css/delete.png" width="30"height="30" /><h1>输入删除人员信息</h1>
        </div>
@@ -41,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<s:actionerror/>
     <s:form action="deleteMembersB">
     <s:hidden name="manType" value="%{#request.type}"/>
-    		<s:textfield name="userName" label="输入你要删除的人员登录名"/>
-			<s:submit value="删除"/>
+    		<s:textfield id="userName" name="userName" label="输入你要删除的人员登录名"/>
+			<s:submit value="删除" onclick="validator4(event);" />
 			<s:reset value="重置"/>
 	</s:form>
 	</fieldset>

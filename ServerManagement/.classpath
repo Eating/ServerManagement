@@ -23,5 +23,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.struts2.MYECLIPSE_STRUTS21_CORE"/>
+	<classpathentry kind="lib" path="C:/Users/Yiting/Documents/程序安装/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yiting/Documents/程序安装/strutstest/strutstest-2.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yiting/Documents/程序安装/mysql-connector-java-5.1.12-bin.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

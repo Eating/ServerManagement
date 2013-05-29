@@ -84,7 +84,11 @@ public class AddManager extends ActionSupport implements ServletRequestAware, Se
     public void add() throws IOException{
     	
     	Staff sta = new Staff();
-    	Store sto = (Store)se.load(Store.class, 1);
+    	Store sto;
+    	if(Integer.valueOf(setType) == 4)
+    		sto = (Store)se.load(Store.class, 2);
+    	else
+    		sto = (Store)se.load(Store.class, 1);
     	sta.setUserName(userName);
     	sta.setEmail(userEmail);
     	sta.setStaffType(Integer.valueOf(setType));
