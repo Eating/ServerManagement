@@ -30,7 +30,7 @@ public class AddItemsAction extends ActionSupport {
 			if(!pattern.matcher(addItemsPrice).matches())
 				return false ;
 			float tempPrice = Float.parseFloat(addItemsPrice) ;
-			if(tempPrice <= 0)
+			if(tempPrice <= 0 || tempPrice > Float.MAX_VALUE)
 				return false ;
 			
 			if(addPurchasePrice == null || addPurchasePrice.isEmpty())
@@ -38,7 +38,7 @@ public class AddItemsAction extends ActionSupport {
 			if(!pattern.matcher(addPurchasePrice).matches())
 				return false ;
 			float tempPrice2 = Float.parseFloat(addPurchasePrice) ;
-			if(tempPrice2 <= 0)
+			if(tempPrice2 <= 0 || tempPrice2 > Float.MAX_VALUE)
 				return false ;
 			if(tempPrice <= tempPrice2)
 				return false ;

@@ -53,7 +53,7 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 		request.setAttribute("items", items) ;
 		request.setAttribute("cateDefault", cateDefault) ;
 		if(flag == 1)
-			request.setAttribute("inputError", "您输入的名称已存在或输入内容有误。价格请输入如：8.8。且进价不得高于售价") ;
+			request.setAttribute("inputError", "您输入的名称已存在或输入内容有误。价格请输入如：8.8，最大值为" + Float.MAX_VALUE +"。且进价不得高于售价") ;
 		
 		return SUCCESS;
 	}

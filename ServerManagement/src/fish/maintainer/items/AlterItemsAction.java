@@ -57,11 +57,11 @@ public class AlterItemsAction extends ActionSupport {
 		//保留2位小数
 		float tempPrice = Float.parseFloat(alterItemsPrice) ;
 		tempPrice = (float)(Math.round(tempPrice * 100)) / 100 ;
-		if(tempPrice <= 0)
+		if(tempPrice <= 0 || tempPrice > Float.MAX_VALUE)
 			return false ;
 		float tempPrice2 = Float.parseFloat(alterPurchasePrice) ;
 		tempPrice2 = (float)(Math.round(tempPrice2 * 100)) / 100 ;
-		if(tempPrice2 <= 0)
+		if(tempPrice2 <= 0 || tempPrice2 > Float.MAX_VALUE)
 			return false ;
 		if(tempPrice <= tempPrice2)
 			return false ;
