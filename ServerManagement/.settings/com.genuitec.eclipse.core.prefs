@@ -1,3 +1,3 @@
 eclipse.preferences.version=1
-validator.Checked=WebRoot/MaintainerPage/LeftMenu.jsp,WebRoot/MaintainerPage/MaintainStores.jsp,WebRoot/MaintainerPage/SearchedItemlist.jsp,WebRoot/MaintainerPage/MaintainItemsB.jsp,WebRoot/MaintainerPage/MaintainItems.jsp,WebRoot/MaintainerPage/MaintainStock.jsp,src,WebRoot/MaintainerPage/MaintainItemsC.jsp,WebRoot/MaintainerPage/SearchedItem.jsp,WebRoot/MaintainerPage/SearchedStore.jsp
+validator.Checked=WebRoot/MaintainerPage/LeftMenu.jsp,WebRoot/DeleteMembers.jsp,WebRoot/ChangePassword.jsp,WebRoot/MaintainerPage/MaintainStores.jsp,WebRoot/MaintainerPage/SearchedItemlist.jsp,WebRoot/MaintainerPage/MaintainItemsB.jsp,WebRoot/MaintainerPage/MaintainItems.jsp,WebRoot/MaintainerPage/MaintainStock.jsp,src,WebRoot/MaintainerPage/MaintainItemsC.jsp,WebRoot/MaintainerPage/SearchedItem.jsp,WebRoot/MaintainerPage/SearchedStore.jsp
 validator.Unchecked=

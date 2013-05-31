@@ -10,15 +10,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Insert title here</title>
+<title>商品管理</title>
 
-<style type="text/css">
-input {
-	width: 2.5cm;
-}
-</style>
 </head>
 <body>
+<% 
+		if(request.getAttribute("inputError") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("inputError")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("inputError") ;
+%>
+
 	<%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
@@ -97,16 +100,12 @@ input {
 	</div>
 	<div class="border"></div>
 
-
-
-
-	<!--  <jsp:include page="MaintainItemMenu.jsp" /> -->
 	<div class="maintainItemsBRight">
 		<div class="searchItems">
 			<fieldset>
 				<form action="searchItem" target="_blank">
-					请输入商品名称： <input type="text" name="search_item" /> <input
-						type="submit" value="搜索" />
+					请输入商品名称： <input type="text" name="search_item" maxlength="45"/> 
+					<input type="submit" value="搜索" />
 				</form>
 
 				<br />
@@ -143,7 +142,7 @@ input {
 						<tr>
 							<form action="alterItems" onsubmit="return if_alter();">
 							
-									<td><input type="text" name="alterItemsName" value="${curr.name}" /></td>
+									<td><input type="text" name="alterItemsName" maxlength="45" value="${curr.name}" /></td>
 									<td>
 									<select name="alterItemsCate">
 										<option value="${curr.category.id}">${curr.category.name}</option>
@@ -167,8 +166,7 @@ input {
 
 							<form action="removeItems" onsubmit="return if_rmv();">
 								<td>	<input type="submit" style="width:40px;" value="删除" />
-								 <input type="hidden"
-										name="rmvItemsId" value="${curr.id}"/></td>
+								 <input type="hidden" name="rmvItemsId" value="${curr.id}"/></td>
 								</form>
 						</tr>
 					</s:iterator>
@@ -181,16 +179,16 @@ input {
         <div class="addItems">
         <fieldset>
 		<form action="addItems">
-			商品名称<input type="text" name="addItemsName" /> 商品类别 <select
-				name="addItemsCate">
+			商品名称<input type="text" name="addItemsName" /> 商品类别 
+			<select name="addItemsCate">
 				<option value=0>请选择类别</option>
 				<s:iterator value="#request.categorylist" id="currOp">
 					<option value="${currOp.id}">${currOp.name}</option>
 				</s:iterator>
 			</select> 商品价格<input type="text" onkeypress="return isPrice(event)"
-				name="addItemsPrice" /> 商品进价<input type="text"
-				onkeypress="return isPrice(event)" name="addPurchasePrice" /> <input
-				type="submit" value="添加商品" />
+				name="addItemsPrice" /> 商品进价
+				<input type="text" onkeypress="return isPrice(event)" name="addPurchasePrice" /> 
+				<input type="submit" value="添加商品" />
 		</form>
 		</fieldset>
 		</div>

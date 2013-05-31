@@ -28,6 +28,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	private int category_id, store_id ;
 	private String cateDefault, storeDefault ;
 	private ItemlistBean curr ;
+	private int flag ;
 	
 	public void getData()
 	{
@@ -120,6 +121,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	
 	public String execute() throws Exception{
 		request.setAttribute("itemlist", item_list) ;
+		if(flag == 1)
+			request.setAttribute("inputError", "您输入的内容有误 (打折信息请输入如：0.88)") ;
 		
 		return SUCCESS;
 	}
@@ -186,6 +189,14 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 
 	public void setItems(List<Items> items) {
 		this.items = items;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

@@ -80,18 +80,21 @@
         </action>
         
         <action name="alterCategory" class="fish.maintainer.items.AlterCategoryAction">
-        	<result name="input" type="redirect">maintainItemsC.action</result>
-            <result name="success" type="redirect">maintainItemsC.action</result>
+        	<result name="input" type="redirect">maintainItemsC.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItemsC.action?flag=1</result>
+            <result name="success" type="redirect">maintainItemsC.action?flag=0</result>
         </action>
         
         <action name="addCategory" class="fish.maintainer.items.AddCategoryAction">
-        	<result name="input" type="redirect">maintainItemsC.action</result>
-            <result name="success" type="redirect">maintainItemsC.action</result>
+        	<result name="input" type="redirect">maintainItemsC.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItemsC.action?flag=1</result>
+            <result name="success" type="redirect">maintainItemsC.action?flag=0</result>
         </action>
         
         <action name="addItems" class="fish.maintainer.items.AddItemsAction">
-        	<result name="input" type="redirect">maintainItemsB.action</result>
-            <result name="success" type="redirect">maintainItemsB.action</result>
+        	<result name="input" type="redirect">maintainItemsB.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItemsB.action?flag=1</result>
+            <result name="success" type="redirect">maintainItemsB.action?flag=0</result>
         </action>
         
         <action name="addItemlist" class="fish.maintainer.items.AddItemlistAction">
@@ -100,13 +103,15 @@
         </action>
         
         <action name="alterItems" class="fish.maintainer.items.AlterItemsAction">
-        	<result name="input" type="redirect">maintainItemsB.action</result>
-            <result name="success" type="redirect">maintainItemsB.action</result>
+        	<result name="input" type="redirect">maintainItemsB.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItemsB.action?flag=1</result>
+            <result name="success" type="redirect">maintainItemsB.action?flag=0</result>
         </action>
         
          <action name="alterItemlist" class="fish.maintainer.items.AlterItemlistAction">
-        	<result name="input" type="redirect">maintainItems.action</result>
-            <result name="success" type="redirect">maintainItems.action</result>
+        	<result name="input" type="redirect">maintainItems.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItems.action?flag=1</result>
+            <result name="success" type="redirect">maintainItems.action?flag=0</result>
         </action>
         
         <action name="maintainStores" class="fish.maintainer.stores.MaintainStoresAction">
@@ -120,13 +125,15 @@
 		</action>
 		
 		<action name="alterStore" class="fish.maintainer.stores.AlterStoreAction">
-			<result name="input" type="redirect">maintainStores.action</result>
-			<result name="success" type="redirect">maintainStores.action</result>
+			<result name="input" type="redirect">maintainStores.action?flag=1</result>
+			<result name="inputError" type="redirect">maintainStores.action?flag=1</result>
+			<result name="success" type="redirect">maintainStores.action?flag=0</result>
 		</action>
 		
 		<action name="addStore" class="fish.maintainer.stores.AddStoreAction">
-			<result name="input" type="redirect">maintainStores.action</result>
-			<result name="success" type="redirect">maintainStores.action</result>
+			<result name="input" type="redirect">maintainStores.action?flag=1</result>
+			<result name="inputError" type="redirect">maintainStores.action?flag=1</result>
+			<result name="success" type="redirect">maintainStores.action?flag=0</result>
 		</action>
 		
 		<action name="addStoreDetail" class="fish.maintainer.stores.AddStoreDetailAction">

@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'LeftMenu.jsp' starting page</title>
+    <title>各店铺商品维护</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -25,6 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+<% 
+		if(request.getAttribute("inputError") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("inputError")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("inputError") ;
+%>  
+  
 <%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
@@ -86,16 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                }
            }
         } 
-        
-        //打折验证还不行哈~~
-        function checkDis(str) {
-            var t1=document.getElementById("dis").value;
-				var patrn1=/^0.[0-9]{2}$/;
-				var re = new RegExp(patrn1);
-				if(!re.test(dis)){
-						alert("打折信息有误，请输入如“0.88”");
-				}
-        }
+       
 	</script>
 
 		<div class="topMenuDiv">
@@ -135,8 +134,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="searchItems">
 	<fieldset>
 		<form action="searchItemlist" target="_blank">
-			请输入店铺名称： <input type="text" name="search_store" /> 
-			请输入商品名称： <input type="text" name="search_item" /> 
+			请输入店铺名称： <input type="text" name="search_store" maxlength="45"/> 
+			请输入商品名称： <input type="text" name="search_item" maxlength="45"/> 
 			<input type="submit" value="搜索" />
 		</form>
 
@@ -189,7 +188,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${curr.stock}</td>
 					<form action="alterItemlist" onsubmit="return if_alter();">
 					<td>
-							<input style="width:40px;" id="dis" type="text" name="alterListDis"
+							<input style="width:40px;" maxlength="4" type="text" name="alterListDis"
 								value="${curr.discount}" /> 
 					</td>
 						<td>
@@ -204,8 +203,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 						 <input type="text" maxlength="2" style="width:40px;"
 							onkeypress="return isNum(event)" name="alterListGiftNum"
-							value="${curr.giftNum}" /> <input type="hidden"
-							name="alterListId" value="${curr.id}"></input> 
+							value="${curr.giftNum}" /> 
+							<input type="hidden" name="alterListId" value="${curr.id}"></input> 
 						</td>	
 						
 						<td>	

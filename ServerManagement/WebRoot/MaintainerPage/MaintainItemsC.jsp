@@ -10,7 +10,7 @@
 	href="css/MaintainItemsCPage.css" />	
 <html>
 <head>
-<title>Insert title here</title>
+<title>商品类别管理</title>
 <link rel="stylesheet" media="screen" type="text/css" href="css/admin.css" />
 	
 	<style type="text/css">
@@ -21,6 +21,14 @@
   	</style>
 </head>
 <body>
+<% 
+		if(request.getAttribute("inputError") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("inputError")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("inputError") ;
+%>
+
 <%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
@@ -102,7 +110,7 @@
 	<table>
 		<s:iterator value="#request.categorylist" id="curr">
 			<tr><td><form action="alterCategory" onsubmit="return if_alter();">
-				<input type="text" name="categoryName" value="${curr.name}" />
+				<input type="text" name="categoryName" maxlength="45" value="${curr.name}" />
 				<input type="hidden" name="alterCategoryId" value="${curr.id}"></input>
 				<input type="submit" value="修改"/>
 				</form></td>
@@ -118,7 +126,7 @@
 	<div class="addCategory">
 	<fieldset>
 	<form action="addCategory">
-		类别名称<input type="text" name="addCateName" />
+		类别名称<input type="text" name="addCateName" maxlength="45"/>
 		<input type="submit" value="添加商品类"/>
 	</form>
 	<br/>

@@ -1,9 +1,12 @@
 package fish.maintainer.items;
 
 import java.io.UnsupportedEncodingException;
+import java.util.regex.Pattern;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import src.com.server.hiber.Category;
 import src.com.server.hiber.HibernateSessionFactory;
@@ -17,11 +20,14 @@ public class AddItemsAction extends ActionSupport {
 	private String addItemsPrice ;
 	private String addPurchasePrice ;
 
-	//缺少重名与名为空的提示
 	boolean add() throws UnsupportedEncodingException {
 		if(!(addItemsName == null || addItemsName.isEmpty()))
 		{
+			Pattern pattern = Pattern.compile("[0-9]+(.[0-9]+)?") ; 
+		     
 			if(addItemsPrice == null || addItemsPrice.isEmpty())
+				return false ;
+			if(!pattern.matcher(addItemsPrice).matches())
 				return false ;
 			float tempPrice = Float.parseFloat(addItemsPrice) ;
 			if(tempPrice <= 0)
@@ -29,18 +35,29 @@ public class AddItemsAction extends ActionSupport {
 			
 			if(addPurchasePrice == null || addPurchasePrice.isEmpty())
 				return false ;
+			if(!pattern.matcher(addPurchasePrice).matches())
+				return false ;
 			float tempPrice2 = Float.parseFloat(addPurchasePrice) ;
 			if(tempPrice2 <= 0)
 				return false ;
-			
+			if(tempPrice <= tempPrice2)
+				return false ;
 			if(addItemsCate == 0)
 				return false ;
 			
+			String tempName = new String(addItemsName.getBytes("ISO-8859-1"),"UTF-8") ;
 			Session se = HibernateSessionFactory.getSession() ;
+			Criteria item_cri = se.createCriteria(Items.class) ;
+			item_cri.add(Restrictions.eq("name", tempName)) ;
+			if(!item_cri.list().isEmpty())
+			{
+				se.close() ;
+				return false ;
+			}
+			
 			Transaction tran = se.beginTransaction() ;
 			tran.begin() ;
 			Items newItem = new Items() ;
-			String tempName = new String(addItemsName.getBytes("ISO-8859-1"),"UTF-8") ;
 			newItem.setName(tempName) ;
 			Category currCate = (Category)se.load(Category.class, addItemsCate) ;
 			newItem.setCategory(currCate) ;
@@ -59,7 +76,8 @@ public class AddItemsAction extends ActionSupport {
 	}
 	
 	public String execute() throws Exception {
-		add() ;
+		if(!add())
+			return "inputError" ;
 		return SUCCESS;
 	}
 

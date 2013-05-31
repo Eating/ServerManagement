@@ -1,5 +1,7 @@
 package fish.maintainer.items;
 
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -18,22 +20,36 @@ public class AlterItemlistAction extends ActionSupport {
 	private String alterListGiftNum ;
 	private int alterListId ;
 	
-	private void alter() {
+	//ÕÛ¿ÛÄ¬ÈÏÓ¦Îª1
+	private boolean alter() {
+		if(alterListDis == null || alterListDis.isEmpty())
+			return false ;
+		Pattern pattern = Pattern.compile("^[0,1].?[0-9]*$");
+	    if(!pattern.matcher(alterListDis).matches())
+	    	return false ;
+	    
 		Session se = HibernateSessionFactory.getSession() ;
 		Transaction tran = se.beginTransaction() ;
 		tran.begin() ;
 		Itemlist currList = (Itemlist)se.load(Itemlist.class, alterListId) ;
-		if(!(alterListDis == null || alterListDis.isEmpty()))
-		{
-			float tempNum = Float.parseFloat(alterListDis) ;
-			tempNum = (float)(Math.round(tempNum * 100)) / 100 ;
-			currList.setDiscount(tempNum) ;
-		}
+		float tempNum = Float.parseFloat(alterListDis) ;
+		tempNum = (float)(Math.round(tempNum * 100)) / 100 ;
+		if(tempNum > 1 || tempNum <= 0)
+			return false ;
+		
+		currList.setDiscount(tempNum) ;	
 		
 		if(alterListGift != 0)
 		{
 			Items gift = (Items)se.load(Items.class, alterListGift) ;
 			currList.setItemsByGiftId(gift) ;
+			Pattern pattern2 = Pattern.compile("^[1-9][0-9]*$");
+			if(!pattern2.matcher(alterListGiftNum).matches())
+			{
+				se.close() ;
+		    	return false ;
+			}
+			
 			if(alterListGiftNum == null || alterListGiftNum.isEmpty() || alterListGiftNum.equals("0"))
 				currList.setGiftNum(1) ;
 			else
@@ -51,10 +67,14 @@ public class AlterItemlistAction extends ActionSupport {
 		se.update(currList) ;
 		tran.commit() ;
 		se.close() ;
+		
+		return true ;
 	}
 	
 	public String execute() throws Exception {
-		alter() ;
+		if(!alter())
+			return "inputError" ;
+		
 		return SUCCESS;
 	}
 	

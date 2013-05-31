@@ -22,6 +22,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MaintainItemsActionC extends ActionSupport implements ServletRequestAware{
 	private HttpServletRequest request ;
 	private List<Category> category_list ;
+	private int flag ;
 	
 	public void getData()
 	{
@@ -34,6 +35,9 @@ public class MaintainItemsActionC extends ActionSupport implements ServletReques
 	public String execute() throws Exception{
 		getData();
 		request.setAttribute("categorylist", category_list) ;
+		if(flag == 1)
+			request.setAttribute("inputError", "您输入的名称已存在或输入内容有误") ;
+		
 		return SUCCESS;
 	}
 
@@ -43,6 +47,14 @@ public class MaintainItemsActionC extends ActionSupport implements ServletReques
 
 	public void setCategory_list(List<Category> category_list) {
 		this.category_list = category_list;
+	}
+	
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

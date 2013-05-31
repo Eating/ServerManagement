@@ -25,6 +25,7 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 	private List<Category> category_list ;
 	private int category_id2 ;
 	private String cateDefault ;
+	private int flag ;
 	
 	public void getData()
 	{
@@ -51,6 +52,9 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 		request.setAttribute("categorylist", category_list) ;
 		request.setAttribute("items", items) ;
 		request.setAttribute("cateDefault", cateDefault) ;
+		if(flag == 1)
+			request.setAttribute("inputError", "您输入的名称已存在或输入内容有误。价格请输入如：8.8。且进价不得高于售价") ;
+		
 		return SUCCESS;
 	}
 	
@@ -84,6 +88,14 @@ public class MaintainItemsActionB extends ActionSupport implements ServletReques
 
 	public void setCategory_id2(int category_id2) {
 		this.category_id2 = category_id2;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

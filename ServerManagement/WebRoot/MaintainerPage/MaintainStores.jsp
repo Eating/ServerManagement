@@ -11,9 +11,17 @@
 
 <html>
 <head>
-<title>Insert title here</title>
+<title>商店管理</title>
 </head>
 <body>
+<% 
+		if(request.getAttribute("inputError") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("inputError")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("inputError") ;
+%>
+
 	<%
 		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
@@ -92,7 +100,7 @@
 		<div class="searchItems">
 			<fieldset>
 				<form action="searchStore" target="_blank">
-					请输入店铺名称： <input type="text" name="search_store" /> 
+					请输入店铺名称： <input type="text" maxlength="45" name="search_store" /> 
 					<input type="submit" value="搜索" />
 				</form>
 			</fieldset>
@@ -111,17 +119,16 @@
 				<s:iterator value="#request.storelist" id="curr">
 					<tr>
 						<form action="alterStore" onsubmit="return if_alter();">
-						
-								<td><input type="text" name="storeName" value="${curr.name}" /></td>
-								<td><input type="text" name="storeAddr" value="${curr.address}" /></td>
-								<td><input type="hidden" name="alterStoreId" value="${curr.id}" /> 
-								<input type="submit" value="修改" /></td>
-							</form>
+							<td><input type="text" name="storeName" maxlength="45" value="${curr.name}" /></td>
+							<td><input type="text" name="storeAddr" maxlength="100" value="${curr.address}" /></td>
+							<td><input type="hidden" name="alterStoreId" value="${curr.id}" /> 
+							<input type="submit" value="修改" /></td>
+						</form>
 						
 						<form action="removeStore" onsubmit="return if_rmv();">
-								<td><input type="submit" value="删除" />
-								    <input type="hidden" name="rmvStoreId" value="${curr.id}"></input></td>
-							</form>
+							<td><input type="submit" value="删除" />
+							    <input type="hidden" name="rmvStoreId" value="${curr.id}"></input></td>
+						</form>
 						
 					</tr>
 				</s:iterator>
@@ -132,8 +139,9 @@
         <div class="addStore">
         <fieldset>
 		<form action="addStore">
-			店铺名称<input type="text" name="addStoreName" /> 店铺地址<input type="text"
-				name="addStoreAddr" /> <input type="submit" value="添加店铺" />
+			店铺名称<input type="text" maxlength="45" name="addStoreName" /> 
+			店铺地址<input type="text" maxlength="100" name="addStoreAddr" /> 
+			<input type="submit" value="添加店铺" />
 		</form>
 
 		<a href="javascript:;" onclick="addAll()">点此添加新店铺及其商品</a>
