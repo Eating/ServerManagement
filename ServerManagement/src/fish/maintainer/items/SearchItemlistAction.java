@@ -127,7 +127,7 @@ public class SearchItemlistAction extends ActionSupport implements ServletReques
 			this.addActionError("请输入查询信息") ;
 
 		try {
-			if(getData() == false)
+			if(getData())
 				this.addActionMessage("您查询的信息不存在") ;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

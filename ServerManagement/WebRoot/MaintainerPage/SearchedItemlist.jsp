@@ -48,15 +48,6 @@
            }
         } 
         
-        //打折验证还不行哈~~
-        function checkDis(str) {
-            var t1=document.getElementById("dis").value;
-				var patrn1=/^0.[0-9]{2}$/;
-				var re = new RegExp(patrn1);
-				if(!re.test(dis)){
-						alert("打折信息有误，请输入如“0.88”");
-				}
-        }
 	</script>
 	
 <div class="maintainItems" style="height:330px;overflow:auto;">	

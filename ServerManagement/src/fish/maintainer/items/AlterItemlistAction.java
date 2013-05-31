@@ -24,6 +24,9 @@ public class AlterItemlistAction extends ActionSupport {
 	private boolean alter() {
 		if(alterListDis == null || alterListDis.isEmpty())
 			return false ;
+		if(alterListGiftNum == null || alterListGiftNum.isEmpty())
+			return false ;
+		
 		Pattern pattern = Pattern.compile("^[0,1].?[0-9]*$");
 	    if(!pattern.matcher(alterListDis).matches())
 	    	return false ;
