@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form action="alterItemlist" onsubmit="return if_alter();">
 					<td>
 							<input style="width:40px;" maxlength="4" type="text" name="alterListDis"
-								value="${curr.discount}" /> 
+								onkeypress="return isPrice(event)" value="${curr.discount}" /> 
 					</td>
 						<td>
 						<select name="alterListGift">
