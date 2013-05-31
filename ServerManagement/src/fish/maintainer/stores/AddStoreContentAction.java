@@ -4,8 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,11 +27,19 @@ public class AddStoreContentAction extends ActionSupport {
 		if(addStoreAddr == null || addStoreAddr.isEmpty())
 			return false ;
 		
+		String tempName = new String(addStoreName.getBytes("ISO-8859-1"),"UTF-8") ;
 		Session se = HibernateSessionFactory.getSession() ;
+		Criteria category_cri = se.createCriteria(Store.class) ;
+		category_cri.add(Restrictions.eq("name", tempName)) ;
+		if(!category_cri.list().isEmpty())
+		{
+			se.close() ;
+			return false ;
+		}
+		
 		Transaction tran = se.beginTransaction() ;
 		tran.begin() ;
 		Store newStore = new Store() ;
-		String tempName = new String(addStoreName.getBytes("ISO-8859-1"),"UTF-8") ;
 		String tempAddr = new String(addStoreAddr.getBytes("ISO-8859-1"),"UTF-8") ;
 		newStore.setName(tempName) ;
 		newStore.setAddress(tempAddr) ;
@@ -58,7 +68,8 @@ public class AddStoreContentAction extends ActionSupport {
 	}
 	
 	public String execute() throws Exception{
-		add() ;
+		if(!add())
+			return "inputError" ;
 		return SUCCESS;
 	}
 

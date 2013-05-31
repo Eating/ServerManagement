@@ -3,13 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Insert title here</title>
+<title>库存管理</title>
 </head>
 <body>
-  <%
-		UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
-				"userInfo");
-				%>
+<% 
+		if(request.getAttribute("notEnough") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("notEnough")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("notEnough") ;
+%>
+
+<%
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
+%>
 	<script language="JavaScript">
 	startList = function() {
 			if (document.all && document.getElementById) {
@@ -118,8 +125,8 @@
 		 <td>${curr.number}</td>
 		 <td>${curr.stock}</td>
 		 <td><form action="alterStock" onsubmit="return if_alter();">
-				<input type="text" name="stockInNum" maxlength="3" onkeypress="return isNum(event)" value="0"></input>
-				<input type="text" name="stockOutNum" maxlength="3" onkeypress="return isNum(event)" value="0"></input>
+				<input type="text" name="stockInNum" onkeypress="return isNum(event)" value="0"></input>
+				<input type="text" name="stockOutNum" onkeypress="return isNum(event)" value="0"></input>
 				<input type="hidden" name="alterStockId" value="${curr.id}"></input>
 				<input type="submit" value="进货/出库"/>
 			 </form></td>

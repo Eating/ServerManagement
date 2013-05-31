@@ -24,7 +24,11 @@ public class AlterStockAction extends ActionSupport implements ServletRequestAwa
 			stockOutNum = "0" ;
 		Session se = HibernateSessionFactory.getSession() ;
 		Itemlist currlist = (Itemlist)se.load(Itemlist.class, alterStockId) ;
-		if(Integer.parseInt(stockOutNum) > currlist.getStock())
+		if(Integer.parseInt(stockOutNum) > Integer.MAX_VALUE)
+			return false ;
+		if(Integer.parseInt(stockInNum) < 0 || Integer.parseInt(stockInNum) > Integer.MAX_VALUE)
+			return false ;
+		if(Integer.parseInt(stockOutNum) < 0 || Integer.parseInt(stockOutNum) > currlist.getStock())
 			return false ;
 		else
 		{
@@ -45,9 +49,8 @@ public class AlterStockAction extends ActionSupport implements ServletRequestAwa
 	}
 	
 	public String execute() throws Exception {
-		if(!alter())//²»ÐÐ¡£¡£¡£¡£
-			request.getSession().setAttribute("notEnough", "¿â´æ²»×ã") ;
-		
+		if(!alter())
+			return "inputError" ;
 		return SUCCESS;
 	}
 

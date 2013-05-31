@@ -142,8 +142,9 @@
 		</action>
 		
 		<action name="addStoreContent" class="fish.maintainer.stores.AddStoreContentAction">
-			<result name="input" type="redirect">addStoreDetail.action</result>
-			<result name="success" type="redirect">addStoreDetail.action</result>
+			<result name="input" type="redirect">addStoreDetail.action?flag=1</result>
+			<result name="inputError" type="redirect">addStoreDetail.action?flag=1</result>
+			<result name="success" type="redirect">addStoreDetail.action?flag=0</result>
 		</action>
 		
 		<action name="maintainStock" class="fish.maintainer.items.MaintainItemsAction">
@@ -152,8 +153,9 @@
 		</action>
 		
 		<action name="alterStock" class="fish.maintainer.stock.AlterStockAction">
-			<result name="input" type="redirect">maintainStock.action</result>
-			<result name="success" type="redirect">maintainStock.action</result>
+			<result name="input" type="redirect">maintainStock.action?stockFlag=1</result>
+			<result name="inputError" type="redirect">maintainStock.action?stockFlag=1</result>
+			<result name="success" type="redirect">maintainStock.action?stockFlag=0</result>
 		</action>
 		
 		<action name="statistics" class="fish.maintainer.orders.StatisticsAction">

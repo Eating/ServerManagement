@@ -20,6 +20,7 @@ public class AddStoreDetailAction extends ActionSupport implements ServletReques
 	private List<Category> category_list ;
 	private int category_id ;
 	private List<Items> items ;
+	private int flag ;
 	
 	private void getData() {
 		Session se = HibernateSessionFactory.getSession() ;
@@ -39,6 +40,8 @@ public class AddStoreDetailAction extends ActionSupport implements ServletReques
 		getData() ;
 		request.setAttribute("categorylist", category_list) ;
 		request.setAttribute("items", items) ;
+		if(flag == 1)
+			request.setAttribute("inputError", "您输入的名称已存在或输入内容有误") ;
 		return SUCCESS;
 	}
 	
@@ -64,6 +67,14 @@ public class AddStoreDetailAction extends ActionSupport implements ServletReques
 
 	public void setItems(List<Items> items) {
 		this.items = items;
+	}
+	
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

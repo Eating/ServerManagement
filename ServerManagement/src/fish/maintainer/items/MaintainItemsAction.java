@@ -29,6 +29,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	private String cateDefault, storeDefault ;
 	private ItemlistBean curr ;
 	private int flag ;
+	private int stockFlag ;
 	
 	public void getData()
 	{
@@ -123,6 +124,8 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 		request.setAttribute("itemlist", item_list) ;
 		if(flag == 1)
 			request.setAttribute("inputError", "您输入的内容有误 (打折信息请输入如：0.88)") ;
+		if(stockFlag == 1)
+			request.setAttribute("notEnough", "库存不足或输入数值有误（最大数值为"+Integer.MAX_VALUE+")") ;
 		
 		return SUCCESS;
 	}
@@ -197,6 +200,14 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 
 	public void setFlag(int flag) {
 		this.flag = flag;
+	}
+
+	public int getStockFlag() {
+		return stockFlag;
+	}
+
+	public void setStockFlag(int stockFlag) {
+		this.stockFlag = stockFlag;
 	}
 
 	public void setServletRequest(HttpServletRequest req) {

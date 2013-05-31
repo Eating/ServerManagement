@@ -6,6 +6,13 @@
 <title>添加新店铺</title>
 </head>
 <body>	
+<% 
+		if(request.getAttribute("inputError") != null)
+	   	{
+	   		out.print("<script>alert('"+request.getAttribute("inputError")+"');</script>") ;
+	   	}
+   		request.getSession().removeAttribute("inputError") ;
+%>
 
 <form action="addStoreDetail">
 	<select name="category_id">
@@ -17,8 +24,8 @@
 	<input type="submit" value="查看"/>
 </form>
 <form action="addStoreContent">
-	店铺名称<input type="text" name="addStoreName"/>
-	店铺地址<input type="text" name="addStoreAddr"/>
+	店铺名称<input type="text" maxlength="45" name="addStoreName"/>
+	店铺地址<input type="text" maxlength="100" name="addStoreAddr"/>
 	<br/>
 	<s:iterator value="#request.items" id="curr">
 		${curr.name}<input type="checkbox" name="addContent" value="${curr.id}"/>
