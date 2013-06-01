@@ -5,7 +5,7 @@
 <head>
 <base target="_blank" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>历史订单查询</title>
 </head>
 <body>
 <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>

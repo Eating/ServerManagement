@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>单项商品销售统计</title>
 </head>
 <body>
 您正在查看的商品：${requestScope.itemName}	

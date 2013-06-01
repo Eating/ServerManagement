@@ -20,7 +20,7 @@ public class AlterItemlistAction extends ActionSupport {
 	private String alterListGiftNum ;
 	private int alterListId ;
 	
-	//折扣默认应为1
+	//折扣默认应为1，无赠品时赠品数量为0
 	private boolean alter() {
 		if(alterListDis == null || alterListDis.isEmpty())
 			return false ;
@@ -47,14 +47,13 @@ public class AlterItemlistAction extends ActionSupport {
 			Items gift = (Items)se.load(Items.class, alterListGift) ;
 			currList.setItemsByGiftId(gift) ;
 			Pattern pattern2 = Pattern.compile("^[1-9][0-9]*$");
-			if(!pattern2.matcher(alterListGiftNum).matches())
+			if(alterListGiftNum.equals("0"))
+				currList.setGiftNum(1) ;
+			else if(!pattern2.matcher(alterListGiftNum).matches())
 			{
 				se.close() ;
 		    	return false ;
 			}
-			
-			if(alterListGiftNum == null || alterListGiftNum.isEmpty() || alterListGiftNum.equals("0"))
-				currList.setGiftNum(1) ;
 			else
 			{
 				int newGirfNum = Integer.parseInt(alterListGiftNum) ;
