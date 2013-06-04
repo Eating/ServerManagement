@@ -1,5 +1,7 @@
 package fish.maintainer.stock;
 
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -22,13 +24,18 @@ public class AlterStockAction extends ActionSupport implements ServletRequestAwa
 			stockInNum = "0" ;
 		if(stockOutNum == null || stockOutNum.isEmpty())
 			stockOutNum = "0" ;
-		Session se = HibernateSessionFactory.getSession() ;
-		Itemlist currlist = (Itemlist)se.load(Itemlist.class, alterStockId) ;
-		if(Integer.parseInt(stockOutNum) > Integer.MAX_VALUE)
+		Pattern pattern = Pattern.compile("^[0,1].?[0-9]*$");
+	    if(!pattern.matcher(stockInNum).matches())
+	    	return false ;
+	    if(!pattern.matcher(stockOutNum).matches())
+	    	return false ;
+	    if(Integer.parseInt(stockOutNum) < 0 || Integer.parseInt(stockOutNum) > Integer.MAX_VALUE)
 			return false ;
 		if(Integer.parseInt(stockInNum) < 0 || Integer.parseInt(stockInNum) > Integer.MAX_VALUE)
 			return false ;
-		if(Integer.parseInt(stockOutNum) < 0 || Integer.parseInt(stockOutNum) > currlist.getStock())
+		Session se = HibernateSessionFactory.getSession() ;
+		Itemlist currlist = (Itemlist)se.load(Itemlist.class, alterStockId) ;
+		if( Integer.parseInt(stockOutNum) > currlist.getStock())
 			return false ;
 		else
 		{
