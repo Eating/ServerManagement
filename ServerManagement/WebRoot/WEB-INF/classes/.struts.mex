@@ -1,3 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Struts2Diagram version="2.0" />
+<Struts2Diagram version="2.0">
+  <package name="default" location="50,50" size="203,3814">
+    <action name="login_check" location="46,54" size="150,41">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="Login.jsp" />
+      </result>
+    </action>
+    <action name="deleteMembers" location="46,146" size="150,62">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="addManager" location="46,246" size="150,62">
+      <result name="input" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="AddManagerSuccess.jsp" />
+      </result>
+    </action>
+    <action name="addMaintainer" location="46,346" size="150,62">
+      <result name="input" />
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="AddMaintainerSuccess.jsp" />
+      </result>
+    </action>
+    <action name="deleteMembersB" location="46,446" size="150,62">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="acknowledgeDelete" location="46,546" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="listMemberInfo" location="46,646" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="changePassword" location="46,746" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="toBackup" location="46,846" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="test.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="BackupSuccess.jsp" />
+      </result>
+    </action>
+    <action name="toRecover" location="46,946" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="test.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="RecoverSuccess.jsp" />
+      </result>
+    </action>
+    <action name="maintainItems" location="46,1046" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="MaintainItems.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MaintainItems.jsp" />
+      </result>
+    </action>
+    <action name="maintainItemsB" location="46,1146" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="MaintainItemsB.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MaintainItemsB.jsp" />
+      </result>
+    </action>
+    <action name="maintainItemsC" location="46,1246" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="MaintainItemsC.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MaintainItemsC.jsp" />
+      </result>
+    </action>
+    <action name="removeCategory" location="46,1346" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="removeItems" location="46,1446" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="removeItemlist" location="46,1546" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="alterCategory" location="46,1646" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="addCategory" location="46,1746" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="addItems" location="46,1846" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="addItemlist" location="46,1946" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="alterItems" location="46,2046" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="alterItemlist" location="46,2146" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="maintainStores" location="46,2246" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="MaintainStores.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MaintainStores.jsp" />
+      </result>
+    </action>
+    <action name="removeStore" location="46,2346" size="150,62">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="alterStore" location="46,2446" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="addStore" location="46,2546" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="addStoreDetail" location="46,2646" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="AddStoreDetail.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="AddStoreDetail.jsp" />
+      </result>
+    </action>
+    <action name="addStoreContent" location="46,2746" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="maintainStock" location="46,2846" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="MaintainStock.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MaintainStock.jsp" />
+      </result>
+    </action>
+    <action name="alterStock" location="46,2946" size="150,83">
+      <result name="input" />
+      <result name="inputError" />
+      <result name="success" />
+    </action>
+    <action name="statistics" location="46,3046" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="Statistics.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="Statistics.jsp" />
+      </result>
+    </action>
+    <action name="orders" location="46,3146" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="Orders.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="Orders.jsp" />
+      </result>
+    </action>
+    <action name="orderDetail" location="46,3246" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="OrderDetail.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="OrderDetail.jsp" />
+      </result>
+    </action>
+    <action name="staItems" location="46,3346" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="StaItems.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="StaItems.jsp" />
+      </result>
+    </action>
+    <action name="singleItem" location="46,3446" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="SingleItem.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="SingleItem.jsp" />
+      </result>
+    </action>
+    <action name="searchStore" location="46,3546" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="SearchedStore.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="SearchedStore.jsp" />
+      </result>
+    </action>
+    <action name="searchItem" location="46,3646" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="SearchedItem.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="SearchedItem.jsp" />
+      </result>
+    </action>
+    <action name="searchItemlist" location="46,3746" size="150,62">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="SearchedItemlist.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="SearchedItemlist.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="Login.jsp" path="/Login.jsp" location="350,50" size="150,55" />
+  <webResource name="AddManagerSuccess.jsp" path="/AddManagerSuccess.jsp" location="350,200" size="150,55" />
+  <webResource name="AddMaintainerSuccess.jsp" path="/AddMaintainerSuccess.jsp" location="350,350" size="150,55" />
+  <webResource name="test.jsp" path="/test.jsp" location="350,500" size="150,55" />
+  <webResource name="BackupSuccess.jsp" path="/BackupSuccess.jsp" location="350,650" size="150,55" />
+  <webResource name="RecoverSuccess.jsp" path="/RecoverSuccess.jsp" location="350,800" size="150,55" />
+  <webResource name="MaintainItems.jsp" path="/MaintainerPage/MaintainItems.jsp" location="350,950" size="150,55" />
+  <webResource name="MaintainItemsB.jsp" path="/MaintainerPage/MaintainItemsB.jsp" location="350,1100" size="150,55" />
+  <webResource name="MaintainItemsC.jsp" path="/MaintainerPage/MaintainItemsC.jsp" location="350,1250" size="150,55" />
+  <webResource name="MaintainStores.jsp" path="/MaintainerPage/MaintainStores.jsp" location="350,1400" size="150,55" />
+  <webResource name="AddStoreDetail.jsp" path="/MaintainerPage/AddStoreDetail.jsp" location="350,1550" size="150,55" />
+  <webResource name="MaintainStock.jsp" path="/MaintainerPage/MaintainStock.jsp" location="350,1700" size="150,55" />
+  <webResource name="Statistics.jsp" path="/MaintainerPage/Statistics.jsp" location="350,1850" size="150,55" />
+  <webResource name="Orders.jsp" path="/MaintainerPage/Orders.jsp" location="350,2000" size="150,55" />
+  <webResource name="OrderDetail.jsp" path="/MaintainerPage/OrderDetail.jsp" location="350,2150" size="150,55" />
+  <webResource name="StaItems.jsp" path="/MaintainerPage/StaItems.jsp" location="350,2300" size="150,55" />
+  <webResource name="SingleItem.jsp" path="/MaintainerPage/SingleItem.jsp" location="350,2450" size="150,55" />
+  <webResource name="SearchedStore.jsp" path="/MaintainerPage/SearchedStore.jsp" location="350,2600" size="150,55" />
+  <webResource name="SearchedItem.jsp" path="/MaintainerPage/SearchedItem.jsp" location="350,2750" size="150,55" />
+  <webResource name="SearchedItemlist.jsp" path="/MaintainerPage/SearchedItemlist.jsp" location="350,2900" size="150,55" />
+  <include file="struts-default.xml" location="350,3050" size="150,30" />
+</Struts2Diagram>
 

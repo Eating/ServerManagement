@@ -198,4 +198,14 @@
 			<result name="success">/MaintainerPage/SearchedItemlist.jsp</result>
 		</action>
 	</package>
+	
+	<!-- ***********************************json********************************** -->	
+	
+	<package name="json" extends="json-default">
+        <action name="LoginServlet" class="eating.servlet.LoginServlet" method="LoginVerification">
+           <result type="json" />
+        </action>
+    </package>
+	
+	
 </struts>    
