@@ -198,4 +198,14 @@
 			<result name="success">/MaintainerPage/SearchedItemlist.jsp</result>
 		</action>
 	</package>
+
+<!-- ***********************************json********************************** -->	
+	
+	<package name="json" extends="json-default">
+        <action name="testJson" class="fish.interact.json.SendItemData" method="json">
+           <result type="json" />
+        </action>
+    </package>
 </struts>    
+
+

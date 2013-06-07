@@ -15,7 +15,7 @@
 订单序列号：${requestScope.orderId}
 
 <table>
-	<tr><td>商品名称</td><td>商店数量</td><td>单价</td><td>总价</td><td>折扣</td></tr>
+	<tr><td>商品名称</td><td>商品数量</td><td>单价</td><td>总价</td><td>折扣</td></tr>
 	<s:iterator value="#request.detaillist" id="curr">
 		<tr><td>${curr.itemName}</td>
 			<td>${curr.number}</td>
