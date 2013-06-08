@@ -198,21 +198,27 @@
 			<result name="success">/MaintainerPage/SearchedItemlist.jsp</result>
 		</action>
 	</package>
+<<<<<<< HEAD
 
 <!-- ***********************************json********************************** -->	
 	
-<package name="json" extends="json-default">
+	<package name="json" extends="json-default">
         <action name="testJson" class="fish.interact.json.SendItemData" method="json">
            <result type="json" />
         </action>
-        
+    </package>
+=======
+	
+	<!-- ***********************************json********************************** -->	
+	
+	<package name="json" extends="json-default">
         <action name="LoginServlet" class="eating.servlet.LoginServlet" method="LoginVerification">
            <result type="json" />
         </action>
-</package>
-
+    </package>
 	
 	
+>>>>>>> a6daef613bb3aa191db3cb1c63590079b38b4e39
 </struts>    
 
 
