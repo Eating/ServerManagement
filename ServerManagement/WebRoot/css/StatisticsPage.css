@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+div.statisticsRight{
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+	width: 1000px;
+}
+fieldset {
+	background-color: #FFFFFF;
+}
+div.chooseTimes{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+div.StoreTable{
+	margin-top:30px;
+}
+.StoreTable table {
+	width: 900px;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+
+.StoreTable th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.StoreTable td {
+	height: 30px;
+}
+
+.StoreTable td,th {
+	border: 2px solid #cad9ea;
+	padding: 0 lem 0;
+}
+
+.StoreTable td:nth-child(1) {
+	width: 50%;
+}
+
+.StoreTable td:nth-child(2) {
+	width: 25%;
+}
+
+.StoreTable td:nth-child(3) {
+	width: 25%;
+}
+.StoreTable tr:nth-child(even) {
+	background-color: #f5fafe;
+}

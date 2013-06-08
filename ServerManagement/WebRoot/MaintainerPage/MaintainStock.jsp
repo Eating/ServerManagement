@@ -1,5 +1,11 @@
 <%@ page language="java" import="eating.user.UserInfo" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<link rel="stylesheet" media="screen" type="text/css"
+	href="css/LeftMenuPage.css" />
+<link rel="stylesheet" media="screen" type="text/css"
+	href="css/SuperManagerPage.css" />	
+	<link rel="stylesheet" media="screen" type="text/css"
+	href="css/MaintainStockPage.css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,7 +95,11 @@
 	</div>	
 	
 	
+	
+	
 	<div class="maintainStockRight">
+	<div class="select">
+	<fieldset>
 	<form action="maintainStock">
 		<select name="store_id">
 			<option value="${requestScope.store_id}">${requestScope.storeDefault}</option>
@@ -109,29 +119,37 @@
 	   
 	   	<input type="submit" value="查看"></input>
 	</form>
+</fieldset>
+</div>
 
+
+<div class="info">
+<fieldset>
 	<table>
-	<tr><td>店铺</td><td>名称</td><td>类别</td><td>数量</td><td>库存</td><td>进货</td><td>出库</td>
+	<tr><th>店铺</th><th>名称</th><th>类别</th><th>数量</th><th>库存</th><th>进货</th><th>出库</th><th>操作</th>
 	</tr>
-	</table>
 	
 	<s:actionmessage/>
 	
-	<table>
 	  	<s:iterator value="#request.itemlist" id="curr">
 		 <tr><td>${curr.store}</td>
 		 <td>${curr.name}</td> 
 		 <td>${curr.category}</td>
 		 <td>${curr.number}</td>
 		 <td>${curr.stock}</td>
-		 <td><form action="alterStock" onsubmit="return if_alter();">
-				<input type="text" name="stockInNum" onkeypress="return isNum(event)" value="0"></input>
-				<input type="text" name="stockOutNum" onkeypress="return isNum(event)" value="0"></input>
-				<input type="hidden" name="alterStockId" value="${curr.id}"></input>
-				<input type="submit" value="进货/出库"/>
-			 </form></td>
+		 
+		 
+		 <form action="alterStock" onsubmit="return if_alter();">
+				<td><input type="text" name="stockInNum" onkeypress="return isNum(event)" value="0"></input></td>
+				<td><input type="text" name="stockOutNum" onkeypress="return isNum(event)" value="0"></input></td>
+				<td><input type="hidden" name="alterStockId" value="${curr.id}"></input>
+				<input type="submit" value="进货/出库"/></td>
+			 </form>
 	</s:iterator>
 	</table>
+	</fieldset>
+	</div>
+	
 	</div>
 </body>
 </html>
