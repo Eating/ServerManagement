@@ -16,7 +16,6 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 	private Integer stock;
 	private float discount;
 	private Integer giftNum;
-	private boolean state;
 	private Integer number;
 
 	// Constructors
@@ -27,26 +26,24 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractItemlist(Store store, Items itemsByItemsId, Integer stock,
-			float discount, boolean state, Integer number) {
+			float discount, Integer number) {
 		this.store = store;
 		this.itemsByItemsId = itemsByItemsId;
 		this.stock = stock;
 		this.discount = discount;
-		this.state = state;
 		this.number = number;
 	}
 
 	/** full constructor */
 	public AbstractItemlist(Store store, Items itemsByItemsId,
 			Items itemsByGiftId, Integer stock, float discount,
-			Integer giftNum, boolean state, Integer number) {
+			Integer giftNum, Integer number) {
 		this.store = store;
 		this.itemsByItemsId = itemsByItemsId;
 		this.itemsByGiftId = itemsByGiftId;
 		this.stock = stock;
 		this.discount = discount;
 		this.giftNum = giftNum;
-		this.state = state;
 		this.number = number;
 	}
 
@@ -106,14 +103,6 @@ public abstract class AbstractItemlist implements java.io.Serializable {
 
 	public void setGiftNum(Integer giftNum) {
 		this.giftNum = giftNum;
-	}
-
-	public boolean getState() {
-		return this.state;
-	}
-
-	public void setState(boolean state) {
-		this.state = state;
 	}
 
 	public Integer getNumber() {

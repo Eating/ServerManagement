@@ -1,6 +1,7 @@
 package eating.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import org.hibernate.criterion.Restrictions;
 
 import src.com.server.hiber.HibernateSessionFactory;
 import src.com.server.hiber.Staff;
+import src.com.server.json.JSONObject;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -30,41 +32,53 @@ public class LoginServlet extends ActionSupport implements ServletRequestAware,
 		userName = request.getParameter("userName");
 		password = request.getParameter("password");
 		System.out.println("we get the parameter" + userName + "!!!" + password);
-
-
-		if (checkUser())
+		int result = checkUser();
+		if (result!= 0)
 		{
-			System.out.println("user exists");
-			PrintWriter out = response.getWriter();
-			out.println("success");
-			out.flush();
-			out.close();
+			System.out.println(" exists");
+			JSONObject jsonObject = new JSONObject();  
+	        jsonObject.put("result", "success");
+	        jsonObject.put("storeId",result);
+	      
+	        try {  
+	            this.response.setCharacterEncoding("UTF-8");  
+	            this.response.getWriter().write(jsonObject.toString());  
+	        } catch (IOException e) {  
+	            e.printStackTrace();  
+	        }  
 		}
 		else
 		{
 			System.out.println("not exists");
-			PrintWriter out = response.getWriter();
-			out.println("failure");
-			out.flush();
-			out.close();
+			JSONObject jsonObject = new JSONObject();  
+	        jsonObject.put("result", "failure");
+	        jsonObject.put("storeId",result);
+	      
+	        try {  
+	            this.response.setCharacterEncoding("UTF-8");  
+	            this.response.getWriter().write(jsonObject.toString());  
+	        } catch (IOException e) {  
+	            e.printStackTrace();  
+	        }  
 		}
 		
 	}
 
-	public boolean checkUser() {
+	public int checkUser() {
 		Session se = src.com.server.hiber.HibernateSessionFactory.getSession();
 		Criteria crit = se.createCriteria(Staff.class);
 		crit.add(Restrictions.eq("userName", userName));
 		crit.add(Restrictions.eq("password", password));
-		crit.add(Restrictions.eq("StaffType", 5));
+		crit.add(Restrictions.eq("staffType", (Integer)5));
+		List<Staff> list = crit.list();
 		if (crit.list().size() == 0){
 			
 			HibernateSessionFactory.closeSession();
-			return false;
+			return 0;
 		}
-		else{
+		else{		
 			HibernateSessionFactory.closeSession();
-			return true;
+			return list.get(0).getStore().getId();
 		}
 	}
 

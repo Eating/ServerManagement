@@ -201,16 +201,15 @@
 
 <!-- ***********************************json********************************** -->	
 	
-<package name="json" extends="json-default">
+	<package name="json" extends="json-default">
         <action name="testJson" class="fish.interact.json.SendItemData" method="json">
            <result type="json" />
         </action>
-        
+
         <action name="LoginServlet" class="eating.servlet.LoginServlet" method="LoginVerification">
            <result type="json" />
         </action>
-</package>
-
+    </package>
 	
 	
 </struts>    
