@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+div.OrdersRight{
+	float:left;
+	margin-top:20px;
+}
+div.Select{
+	margin-top:15px;
+}
+fieldset {
+	background-color: #FFFFFF;
+}
+div.info{
+	margin-top:20px;
+}
+.info table {
+	width: 900px;
+	font-size: 15px;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+}
+
+.info th {
+	background-repeat: repeat-x;
+	height: 30px;
+	overflow: hidden;
+}
+
+.info td {
+	height: 30px;
+}
+
+.info td,th {
+	border: 2px solid #cad9ea;
+	padding: 0 lem 0;
+}
+
+.info td:nth-child(1) {
+	width: 10%;
+}
+
+.info td:nth-child(2) {
+	width: 40%;
+}
+
+.info tr:nth-child(even) {
+	background-color: #f5fafe;
+}

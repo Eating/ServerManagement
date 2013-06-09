@@ -84,6 +84,14 @@
 			<li><a href="maintainStock.action">库存管理</a>
 			</li>
 			<li><a href="statistics.action">销售统计</a>
+			<ul>
+					<li><a href="statistics.action">销售金额统计</a>
+					</li>
+					<li><a href="staItems.action">商品销售统计</a>
+					</li>
+					<li><a href="orders.action">历史订单</a>
+					</li>
+				</ul>		
 			</li>
 			<li><a href="MaintainerPage/testDatabaseOpe.jsp">数据备份及恢复</a>
 			</li>
