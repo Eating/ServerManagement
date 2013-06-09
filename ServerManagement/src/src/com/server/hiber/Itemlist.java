@@ -13,16 +13,15 @@ public class Itemlist extends AbstractItemlist implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Itemlist(Store store, Items itemsByItemsId, Integer stock,
-			float discount, boolean state, Integer number) {
-		super(store, itemsByItemsId, stock, discount, state, number);
+			float discount, Integer number) {
+		super(store, itemsByItemsId, stock, discount, number);
 	}
 
 	/** full constructor */
 	public Itemlist(Store store, Items itemsByItemsId, Items itemsByGiftId,
-			Integer stock, float discount, Integer giftNum, boolean state,
-			Integer number) {
+			Integer stock, float discount, Integer giftNum, Integer number) {
 		super(store, itemsByItemsId, itemsByGiftId, stock, discount, giftNum,
-				state, number);
+				number);
 	}
 
 }

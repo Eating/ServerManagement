@@ -58,7 +58,6 @@ public class AddStoreContentAction extends ActionSupport {
 			newlist.setItemsByGiftId(null) ;
 			newlist.setNumber(0) ;
 			newlist.setStock(0) ;
-			newlist.setState(false) ;
 			se.save(newlist) ;
 		}
 		

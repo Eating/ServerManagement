@@ -98,8 +98,9 @@
         </action>
         
         <action name="addItemlist" class="fish.maintainer.items.AddItemlistAction">
-        	<result name="input" type="redirect">maintainItems.action</result>
-            <result name="success" type="redirect">maintainItems.action</result>
+        	<result name="input" type="redirect">maintainItems.action?flag=1</result>
+        	<result name="inputError" type="redirect">maintainItems.action?flag=1</result>
+            <result name="success" type="redirect">maintainItems.action?flag=0</result>
         </action>
         
         <action name="alterItems" class="fish.maintainer.items.AlterItemsAction">
@@ -201,16 +202,15 @@
 
 <!-- ***********************************json********************************** -->	
 	
-<package name="json" extends="json-default">
-        <action name="testJson" class="fish.interact.json.SendItemData" method="json">
+	<package name="json" extends="json-default">
+        <action name="getItemInfo" class="fish.interact.SendItemData" method="sendData">
            <result type="json" />
         </action>
-        
+
         <action name="LoginServlet" class="eating.servlet.LoginServlet" method="LoginVerification">
            <result type="json" />
         </action>
-</package>
-
+    </package>
 	
 	
 </struts>    

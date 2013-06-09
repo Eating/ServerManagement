@@ -28,9 +28,6 @@
         <property name="giftNum" type="integer">
             <column name="giftNum" />
         </property>
-        <property name="state" type="boolean">
-            <column name="state" not-null="true" />
-        </property>
         <property name="number" type="integer">
             <column name="number" not-null="true" />
         </property>

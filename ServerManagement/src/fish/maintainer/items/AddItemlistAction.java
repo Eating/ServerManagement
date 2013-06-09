@@ -1,7 +1,11 @@
 package fish.maintainer.items;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import src.com.server.hiber.HibernateSessionFactory;
 import src.com.server.hiber.Itemlist;
@@ -14,29 +18,37 @@ public class AddItemlistAction extends ActionSupport {
 	private int addListStore ;
 	private int addListItem ;
 	
-	private void add() {
+	private boolean add() {
 		Session se = HibernateSessionFactory.getSession() ;
-		Transaction tran = se.beginTransaction() ;
-		tran.begin() ;
 		Store currStore = (Store)se.load(Store.class, addListStore) ;
 		Items currItem = (Items)se.load(Items.class, addListItem) ;
+		Criteria list_cri = se.createCriteria(Itemlist.class) ;
+		list_cri.add(Restrictions.and(Restrictions.eq("itemsByItemsId", currItem), Restrictions.eq("store", currStore))) ;
+		List<Itemlist> currlist = list_cri.list() ;
+		if(!currlist.isEmpty())
+			return false ;
+		
+		Transaction tran = se.beginTransaction() ;
+		tran.begin() ;
+		
 		Itemlist newList = new Itemlist() ;
 		newList.setStore(currStore) ;
 		newList.setItemsByItemsId(currItem) ;
-		newList.setDiscount((float) 0) ;
+		newList.setDiscount((float) 1) ;
 		newList.setGiftNum(0) ;
 		newList.setItemsByGiftId(null) ;
 		newList.setNumber(0) ;
 		newList.setStock(0) ;
-		newList.setState(false) ;
 		se.save(newList) ;
 		tran.commit() ;
 		se.close() ;
+		return true ;
 	}
 	
 	public String execute() throws Exception {
 		if(addListStore != 0 && addListItem != 0)
-			add() ;
+			if(!add())
+				return "inputError" ;
 		return SUCCESS;
 	}
 

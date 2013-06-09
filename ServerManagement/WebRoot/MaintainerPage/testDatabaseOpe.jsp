@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   ifExist = Integer.valueOf(request.getParameter("ifExist"));
   GetBackupVersion get = new GetBackupVersion();
   List<String> listOfVersion = get.getVersionList();
-  request.setAttribute("path", "C:/Canjie/");
+  request.setAttribute("path", path);
   UserInfo userInfo = (UserInfo) request.getSession().getAttribute(
 				"userInfo");
    %>

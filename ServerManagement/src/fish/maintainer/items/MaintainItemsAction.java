@@ -123,7 +123,7 @@ public class MaintainItemsAction extends ActionSupport implements ServletRequest
 	public String execute() throws Exception{
 		request.setAttribute("itemlist", item_list) ;
 		if(flag == 1)
-			request.setAttribute("inputError", "您输入的内容有误 (打折信息请输入如：0.88)") ;
+			request.setAttribute("inputError", "您输入的内容有误 或添加项已存在(打折信息请输入如：0.88)") ;
 		if(stockFlag == 1)
 			request.setAttribute("notEnough", "库存不足或输入数值有误（最大数值为"+Integer.MAX_VALUE+")") ;
 		
