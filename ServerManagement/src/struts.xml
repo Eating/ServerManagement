@@ -210,6 +210,18 @@
         <action name="LoginServlet" class="eating.servlet.LoginServlet" method="LoginVerification">
            <result type="json" />
         </action>
+        
+        <action name="ChangePsdServlet" class="eating.servlet.ChangePsdServlet" method="change">
+           <result type="json" />
+        </action>
+        
+         <action name="GetCatoServlet" class="eating.servlet.GetCatoServlet" method="getCato">
+           <result type="json" />
+        </action>
+        
+        <action name="GetItem" class="eating.servlet.GetItem" method="getItem">
+           <result type="json" />
+        </action>
     </package>
 	
 	

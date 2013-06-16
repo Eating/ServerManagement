@@ -25,6 +25,7 @@ public class LoginServlet extends ActionSupport implements ServletRequestAware,
 	private HttpServletResponse response;
 	private String userName;
 	private String password;
+	private int userId = 0;
 
 	public void LoginVerification() throws IOException {
 		this.response.setContentType("text/html;charset=utf-8");
@@ -39,9 +40,9 @@ public class LoginServlet extends ActionSupport implements ServletRequestAware,
 			JSONObject jsonObject = new JSONObject();  
 	        jsonObject.put("result", "success");
 	        jsonObject.put("storeId",result);
+	        jsonObject.put("userId", userId);
 	      
 	        try {  
-	            this.response.setCharacterEncoding("UTF-8");  
 	            this.response.getWriter().write(jsonObject.toString());  
 	        } catch (IOException e) {  
 	            e.printStackTrace();  
@@ -53,6 +54,7 @@ public class LoginServlet extends ActionSupport implements ServletRequestAware,
 			JSONObject jsonObject = new JSONObject();  
 	        jsonObject.put("result", "failure");
 	        jsonObject.put("storeId",result);
+	        jsonObject.put("userId", userId);
 	      
 	        try {  
 	            this.response.setCharacterEncoding("UTF-8");  
@@ -77,6 +79,7 @@ public class LoginServlet extends ActionSupport implements ServletRequestAware,
 			return 0;
 		}
 		else{		
+			userId = list.get(0).getId();
 			HibernateSessionFactory.closeSession();
 			return list.get(0).getStore().getId();
 		}
